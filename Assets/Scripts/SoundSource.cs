@@ -18,12 +18,12 @@ public class SoundSource : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-            directionIndex = 0;
-        else if (Input.GetKeyDown(KeyCode.W))
-            directionIndex = 1;
-        else if (Input.GetKeyDown(KeyCode.E))
-            directionIndex = 2;
+        if (Input.GetKeyDown(KeyCode.Alpha1) && directions.Count > 1)
+            transform.rotation = Quaternion.LookRotation(directions[0].normalized);
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && directions.Count > 1)
+            transform.rotation = Quaternion.LookRotation(directions[1].normalized);
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && directions.Count > 2)
+            transform.rotation = Quaternion.LookRotation(directions[2].normalized);
 
         for (int i = soundWaves.Count - 1; i >= 0; i--)
             if (soundWaves[i] == null)
@@ -34,13 +34,16 @@ public class SoundSource : MonoBehaviour
 
     public void StartSoundWave()
     {
-        Quaternion startRotation = Quaternion.LookRotation(directions[directionIndex].normalized);
+        Quaternion startRotation = Quaternion.LookRotation(transform.forward);
         SoundWave newSoundWave = Instantiate(soundPrefab, transform.position, startRotation).GetComponent<SoundWave>();
         newSoundWave.GetComponent<Rigidbody>().velocity = directions[directionIndex].normalized * speed;
         newSoundWave.speed = speed;
         newSoundWave.intensity = intensity;
+        Collider collider = newSoundWave.GetComponent<Collider>();
         foreach (SoundWave soundWave in soundWaves)
-            Physics.IgnoreCollision(soundWave.GetComponent<Collider>(), newSoundWave.GetComponent<Collider>());
+            Physics.IgnoreCollision(collider, soundWave.GetComponent<Collider>());
+        if (GetComponent<Collider>() != null)
+            Physics.IgnoreCollision(collider, GetComponent<Collider>());
         soundWaves.Add(newSoundWave);
     }
 }
