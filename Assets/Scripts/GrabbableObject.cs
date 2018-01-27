@@ -11,14 +11,65 @@ public class GrabbableObject : MonoBehaviour {
     private GameObject rotationObject;
     private DragMode currentDragMode = DragMode.move;
 
+    [Header("Restrictions")]
+    [SerializeField]
+    private bool isRadiusRestricted = false;
+    [SerializeField]
+    private float radiusSize = 1;
+    [Space]
+    [SerializeField]
+    private bool isRectangleRestricted = false;
+    [SerializeField]
+    private float rectRestXTop;
+    [SerializeField]
+    private float rectRestXButtom;
+    [SerializeField]
+    private float rectRestZLeft;
+    [SerializeField]
+    private float rectRestZRight;
+
+
+    private Vector3 startPosition;
+    private bool isMouseClicked = false;
+
+
+    private void OnDrawGizmosSelected()
+    {
+        if (isRadiusRestricted)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, radiusSize);
+        }
+        if (isRectangleRestricted)
+        {
+            Gizmos.color = Color.yellow;
+            float distanceX = rectRestXTop + rectRestXButtom;
+            float distanceZ = rectRestZLeft + rectRestZRight;
+            Vector3 cubePosition = transform.position - new Vector3(rectRestXTop, 0, rectRestZLeft) + new Vector3(distanceX / 2, 2, distanceZ / 2);//new Vector3(transform.position.x + (distance.x / 2), transform.position.y + (distance.y / 2), 2);
+            Vector3 cubeSize = new Vector3(distanceX, 2, distanceZ);
+            Gizmos.DrawWireCube(cubePosition, cubeSize);
+        }
+        if (centerDistanceForRotation > 0f)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, centerDistanceForRotation);
+        }
+    }
     enum DragMode
     {
         move = 1,
         rotate = 2
     }
 
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
+
     private void OnMouseDown()
     {
+        isMouseClicked = true;
+        //StartCoroutine(LookForMouseUp());
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit raycastHit;
         Physics.Raycast(ray, out raycastHit);
@@ -38,6 +89,23 @@ public class GrabbableObject : MonoBehaviour {
         //Tell ray script to disable?
     }
 
+    private void OnMouseUp()
+    {
+        isMouseClicked = false;
+    }
+    //private IEnumerator LookForMouseUp()
+    //{
+    //    Debug.Log("waiting for mouse lift");
+    //    while (isMouseClicked)
+    //    {
+    //        if (Input.GetMouseButtonUp(0))
+    //        {
+    //            isMouseClicked = false;
+    //            Debug.Log("mouse lifted");
+    //        }
+    //        yield return new WaitForEndOfFrame();
+    //    }
+    //}
     private void OnMouseDrag()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -49,6 +117,17 @@ public class GrabbableObject : MonoBehaviour {
         {
             case DragMode.move:
                 Vector3 moveDistance = newMousePosition - mouseDownPosition;
+                if (isRectangleRestricted)
+                {
+                    if ((transform.position.x + moveDistance.x < startPosition.x - rectRestXTop) || (transform.position.x + moveDistance.x > startPosition.x + rectRestXButtom))
+                    {
+                        moveDistance.x = 0;
+                    }
+                    if ((transform.position.z + moveDistance.z < startPosition.z - rectRestZLeft) || (transform.position.z + moveDistance.z > startPosition.z + rectRestZRight))
+                    {
+                        moveDistance.z = 0;
+                    }
+                }
                 transform.position += moveDistance;
                 break;
             case DragMode.rotate:
@@ -67,19 +146,24 @@ public class GrabbableObject : MonoBehaviour {
 
     private void OnMouseOver()
     {
-        Vector3 newMousePosition = MouseInputReceiver.instance.currentMousePosition;
-        Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
-        float objectDistance = Vector3.Distance(objectPosition, newMousePosition);
-        if (objectDistance > centerDistanceForRotation)
+        if (!isMouseClicked)
         {
-            currentDragMode = DragMode.rotate;
-            EnableRotateVisualizer();
+            Vector3 newMousePosition = MouseInputReceiver.instance.currentMousePosition;
+            newMousePosition = new Vector3(newMousePosition.x, 0, newMousePosition.z);
+            Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
+            float objectDistance = Vector3.Distance(objectPosition, newMousePosition);
+            if (objectDistance > centerDistanceForRotation)
+            {
+                currentDragMode = DragMode.rotate;
+                EnableRotateVisualizer();
+            }
+            else if (objectDistance < centerDistanceForRotation)
+            {
+                currentDragMode = DragMode.move;
+                DisableRotateVisualizer();
+            }
         }
-        else if (objectDistance < centerDistanceForRotation)
-        {
-            currentDragMode = DragMode.move;
-            DisableRotateVisualizer();
-        }
+        
     }
 
     private void OnMouseExit()
