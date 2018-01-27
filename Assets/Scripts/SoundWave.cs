@@ -16,7 +16,12 @@ public class SoundWave : MonoBehaviour
 
         SoundObstacle soundObstacle = collision.gameObject.GetComponent<SoundObstacle>();
         if (soundObstacle != null)
-            intensity -= soundObstacle.effect;
+            intensity += soundObstacle.IntensityEffect;
+        Debug.Log(intensity);
+    }
+
+    void Update()
+    {
         if (intensity <= 0)
             Destroy(gameObject);
     }

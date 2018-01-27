@@ -5,5 +5,20 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class SoundObstacle : MonoBehaviour
 {
-    public float effect = 0.5f;
+    [SerializeField]
+    private float intensityEffect;
+    public float IntensityEffect
+    {
+        get {
+            return intensityEffect;
+        }
+        set {
+            intensityEffect = Mathf.Clamp(value, -1, 1);
+        }
+    }
+
+    void OnValidate()
+    {
+        IntensityEffect = intensityEffect;
+    }
 }
