@@ -6,8 +6,8 @@ public enum SoundObstacleType
     Amplifier,
     Blocker,
     Microphone,
-    SpeedBoost,
-    Water
+    Water,
+    SpeedBoost
 }
 
 [RequireComponent(typeof(Collider))]
@@ -35,9 +35,9 @@ public class SoundObstacle : MonoBehaviour
                 break;
             case SoundObstacleType.Microphone:
                 break;
-            case SoundObstacleType.SpeedBoost:
-                break;
             case SoundObstacleType.Water:
+                break;
+            case SoundObstacleType.SpeedBoost:
                 break;
         }
     }
