@@ -33,6 +33,9 @@ public class SoundWave : MonoBehaviour
 
         intensity += soundObstacle.IntensityEffect;
         switch (soundObstacle.type) {
+            case SoundObstacleType.Microphone:
+                Amplify(soundObstacle.target.transform);
+                break;
             default:
             case SoundObstacleType.Amplifier:
                 Amplify(soundObstacle.transform);

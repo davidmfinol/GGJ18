@@ -14,6 +14,7 @@ public enum SoundObstacleType
 public class SoundObstacle : MonoBehaviour
 {
     public SoundObstacleType type;
+    public Transform target;
 
     public float IntensityEffect {
         get { return intensityEffect; }
