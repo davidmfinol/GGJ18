@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class SoundSource : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class SoundSource : MonoBehaviour
     public Vector3 startLookDirection = new Vector3(0, 0, -1);
     public Vector3 initialVelocity = new Vector3(0, 0, -10f);
     public float initialIntensity = 1.0f;
+
+    private List<SoundWave> soundWaves = new List<SoundWave>();
 
     void Update()
     {
@@ -20,5 +23,8 @@ public class SoundSource : MonoBehaviour
         GameObject newSoundObject = Instantiate(soundPrefab, startPosition, startRotation);
         newSoundObject.GetComponent<Rigidbody>().velocity = initialVelocity;
         newSoundObject.GetComponent<SoundWave>().intensity = initialIntensity;
+        foreach (SoundWave soundWave in soundWaves)
+            Physics.IgnoreCollision(soundWave.GetComponent<Collider>(), newSoundObject.GetComponent<Collider>());
+        soundWaves.Add(newSoundObject.GetComponent<SoundWave>());
     }
 }
