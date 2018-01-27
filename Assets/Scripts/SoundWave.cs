@@ -13,5 +13,11 @@ public class SoundWave : MonoBehaviour
         Vector3 newDir = Vector3.Reflect(curDir, contact.normal);
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, newDir);
         GetComponent<Rigidbody>().velocity = newDir.normalized * speed;
+
+        SoundObstacle soundObstacle = collision.gameObject.GetComponent<SoundObstacle>();
+        if (soundObstacle != null)
+            intensity -= soundObstacle.effect;
+        if (intensity <= 0)
+            Destroy(gameObject);
     }
 }

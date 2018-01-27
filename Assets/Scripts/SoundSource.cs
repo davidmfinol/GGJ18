@@ -25,6 +25,9 @@ public class SoundSource : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.E))
             directionIndex = 2;
 
+        for (int i = soundWaves.Count - 1; i >= 0; i--)
+            if (soundWaves[i] == null)
+                soundWaves.Remove(soundWaves[i]);
         if (Input.GetButtonDown("Submit"))
             StartSoundWave();
     }
