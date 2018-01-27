@@ -33,6 +33,9 @@ public class SoundWave : MonoBehaviour
 
         intensity += soundObstacle.IntensityEffect;
         switch (soundObstacle.type) {
+            case SoundObstacleType.Water:
+                Refract(other);
+                break;
             case SoundObstacleType.Microphone:
                 Amplify(soundObstacle.target.transform);
                 break;
@@ -41,6 +44,14 @@ public class SoundWave : MonoBehaviour
                 Amplify(soundObstacle.transform);
                 break;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        SoundObstacle soundObstacle = other.gameObject.GetComponent<SoundObstacle>();
+        if (soundObstacle == null || soundObstacle.type != SoundObstacleType.Water)
+            return;
+        Refract(other);
     }
 
     public void Reflect(ContactPoint contact)
@@ -57,6 +68,11 @@ public class SoundWave : MonoBehaviour
         Vector3 forward = target.forward;
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, forward);
         GetComponent<Rigidbody>().velocity = forward * speed;
+    }
+
+    public void Refract(Collider collider)
+    {
+
     }
 
     void Update()
