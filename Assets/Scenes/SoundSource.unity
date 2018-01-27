@@ -187,13 +187,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2964673}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &988309803
 Prefab:
   m_ObjectHideFlags: 0
@@ -263,12 +263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e324d669f7e212b41b350f206a71fa3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundPrefab: {fileID: 1834895318101960, guid: 6291dea16b5080b48aa689402a91e580,
+  soundPrefab: {fileID: 1338708757252364, guid: 6291dea16b5080b48aa689402a91e580,
     type: 2}
   startPosition: {x: -2.5, y: 2, z: 5}
-  startLookDirection: {x: 0, y: 0, z: -1}
+  startLookDirection: {x: 1, y: 0, z: -1}
+  initialVelocity: {x: 10, y: 0, z: -10}
   initialIntensity: 1
-  initialVelocity: {x: 0, y: 0, z: -10}
 --- !u!4 &1524569420
 Transform:
   m_ObjectHideFlags: 0

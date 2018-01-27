@@ -11,7 +11,6 @@ public class SoundWave : MonoBehaviour
         dot *= 2;
         Vector3 reflection = contact.normal * dot;
         reflection = reflection + transform.forward;
-        Vector3 velocity = reflection.normalized * 15.0f;
-        GetComponent<Rigidbody>().velocity = velocity;
+        GetComponent<Rigidbody>().velocity = reflection.normalized * 15.0f;
     }
 }
