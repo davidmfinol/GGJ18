@@ -28,11 +28,13 @@ public class EnemyManager : MonoBehaviour {
 
     private void Update()
     {
+        /*
         //FOR TESTING ONLY
         if (Input.GetMouseButtonDown(0))
         {
             UpdateAnnoyanceLevel(0.1f);
         }
+        */
     }
 
     private void OnCollisionEnter(Collision collision)
