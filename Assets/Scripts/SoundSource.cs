@@ -36,7 +36,7 @@ public class SoundSource : MonoBehaviour
     {
         Quaternion startRotation = Quaternion.LookRotation(transform.forward);
         SoundWave newSoundWave = Instantiate(soundPrefab, transform.position, startRotation).GetComponent<SoundWave>();
-        newSoundWave.GetComponent<Rigidbody>().velocity = directions[directionIndex].normalized * speed;
+        newSoundWave.GetComponent<Rigidbody>().velocity = transform.forward * speed;
         newSoundWave.speed = speed;
         newSoundWave.intensity = intensity;
         Collider collider = newSoundWave.GetComponent<Collider>();
