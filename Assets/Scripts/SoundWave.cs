@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class SoundWave : MonoBehaviour
 {
+    public float speed;
     public float intensity;
 
     void OnCollisionEnter(Collision collision)
     {
         ContactPoint contact = collision.contacts[0];
-        float dot = Vector3.Dot(contact.normal, (-transform.forward));
-        dot *= 2;
-        Vector3 reflection = contact.normal * dot;
-        reflection = reflection + transform.forward;
-        GetComponent<Rigidbody>().velocity = reflection.normalized * 15.0f;
+        Vector3 curDir = transform.TransformDirection(Vector3.forward);
+        Vector3 newDir = Vector3.Reflect(curDir, contact.normal);
+        transform.rotation = Quaternion.FromToRotation(Vector3.forward, newDir);
+        GetComponent<Rigidbody>().velocity = newDir.normalized * speed;
     }
 }
