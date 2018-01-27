@@ -7,6 +7,8 @@ public class GrabbableObject : MonoBehaviour {
     private Vector3 mouseDownPosition;
     [SerializeField]
     private float centerDistanceForRotation;
+    [SerializeField]
+    private GameObject rotationObject;
     private DragMode currentDragMode = DragMode.move;
 
     enum DragMode
@@ -68,25 +70,37 @@ public class GrabbableObject : MonoBehaviour {
         Vector3 newMousePosition = MouseInputReceiver.instance.currentMousePosition;
         Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
         float objectDistance = Vector3.Distance(objectPosition, newMousePosition);
-        if (objectDistance > centerDistanceForRotation && currentDragMode != DragMode.rotate)
+        if (objectDistance > centerDistanceForRotation)
         {
             currentDragMode = DragMode.rotate;
             EnableRotateVisualizer();
         }
-        else if (objectDistance < centerDistanceForRotation && currentDragMode != DragMode.move)
+        else if (objectDistance < centerDistanceForRotation)
         {
             currentDragMode = DragMode.move;
             DisableRotateVisualizer();
         }
     }
 
+    private void OnMouseExit()
+    {
+        //currentDragMode = DragMode.move;
+        DisableRotateVisualizer();
+    }
+
     private void EnableRotateVisualizer()
     {
-        throw new System.NotImplementedException();
+        if (rotationObject != null && !rotationObject.activeSelf)
+        {
+            rotationObject.SetActive(true);
+        }
     }
 
     private void DisableRotateVisualizer()
     {
-        throw new System.NotImplementedException();
+        if (rotationObject != null && rotationObject.activeSelf)
+        {
+            rotationObject.SetActive(false);
+        }
     }
 }
