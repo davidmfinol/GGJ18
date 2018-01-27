@@ -8,13 +8,7 @@ public class SoundSource : MonoBehaviour
     public float speed = 10f;
     public float intensity = 1f;
 
-    private int directionIndex;
     private List<SoundWave> soundWaves = new List<SoundWave>();
-
-    void Start()
-    {
-        directionIndex = 1;
-    }
 
     void Update()
     {
