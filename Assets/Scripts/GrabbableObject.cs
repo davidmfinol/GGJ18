@@ -62,4 +62,31 @@ public class GrabbableObject : MonoBehaviour {
         }
         mouseDownPosition = newMousePosition;
     }
+
+    private void OnMouseOver()
+    {
+        Vector3 newMousePosition = MouseInputReceiver.instance.currentMousePosition;
+        Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
+        float objectDistance = Vector3.Distance(objectPosition, mouseDownPosition);
+        if (objectDistance > centerDistanceForRotation && currentDragMode != DragMode.rotate)
+        {
+            currentDragMode = DragMode.rotate;
+            EnableRotateVisualizer();
+        }
+        else if (objectDistance < centerDistanceForRotation && currentDragMode != DragMode.move)
+        {
+            currentDragMode = DragMode.move;
+            DisableRotateVisualizer();
+        }
+    }
+
+    private void EnableRotateVisualizer()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    private void DisableRotateVisualizer()
+    {
+        throw new System.NotImplementedException();
+    }
 }
