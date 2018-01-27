@@ -67,7 +67,7 @@ public class GrabbableObject : MonoBehaviour {
     {
         Vector3 newMousePosition = MouseInputReceiver.instance.currentMousePosition;
         Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
-        float objectDistance = Vector3.Distance(objectPosition, mouseDownPosition);
+        float objectDistance = Vector3.Distance(objectPosition, newMousePosition);
         if (objectDistance > centerDistanceForRotation && currentDragMode != DragMode.rotate)
         {
             currentDragMode = DragMode.rotate;

@@ -10,21 +10,6 @@ public class MouseInputReceiver : MonoBehaviour {
     public RaycastHit raycastHit;
     public Vector3 currentMousePosition;
 
-    private void Awake()
-    {
-
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
-
         private void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
