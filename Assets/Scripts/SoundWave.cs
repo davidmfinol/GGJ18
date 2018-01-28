@@ -7,6 +7,8 @@ public class SoundWave : MonoBehaviour
 
     public float speed;
     public float intensity;
+    public AudioSource waveAudioSource;
+    public AudioClip[] waveImpactSound;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -90,6 +92,15 @@ public class SoundWave : MonoBehaviour
         }
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, normal);
         GetComponent<Rigidbody>().velocity = normal * speed;
+    }
+
+    private void PlayImpactSound()
+    {
+        if (waveImpactSound.Length != 0)
+        {
+            waveAudioSource.clip = waveImpactSound[Random.Range(0, waveImpactSound.Length)];
+            waveAudioSource.Play();
+        }
     }
 
     void Update()
