@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
 public class GameProgressionManager : MonoBehaviour {
 
@@ -12,6 +13,10 @@ public class GameProgressionManager : MonoBehaviour {
     private float timeForCameraTweening;
     [SerializeField]
     private AnimationCurve cameraMotionCurve;
+    [SerializeField]
+    private float startBlur = 3.8f;
+    [SerializeField]
+    private float endBlur = 32f;
 
     [Header("Camera Locations setup")]
     [SerializeField]
@@ -23,7 +28,9 @@ public class GameProgressionManager : MonoBehaviour {
 
     [HideInInspector]
     public bool isInGameMode = false;
+
     private Coroutine cameraCoRoutine;
+    private PostProcessingProfile processingProfile;
 
     private void Awake()
     {
@@ -40,6 +47,11 @@ public class GameProgressionManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         Camera.main.transform.SetPositionAndRotation(cameraPositions[0].transform.position, cameraPositions[0].transform.rotation);
+        processingProfile = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
+        DepthOfFieldModel.Settings settings = processingProfile.depthOfField.settings;
+        settings.aperture = startBlur;
+        settings.focalLength = 250f;
+        processingProfile.depthOfField.settings = settings;
     }
 
     private void Update()
@@ -50,7 +62,8 @@ public class GameProgressionManager : MonoBehaviour {
             {
                 isInGameMode = true;
                 CameraTweening(cameraPositions[1].position);
-                //close menu and move to level 1
+                StartCoroutine(UnBlur());
+                //Change blur effect 3.8 to 32
             }
         }
     }
@@ -81,5 +94,22 @@ public class GameProgressionManager : MonoBehaviour {
 
         Debug.Log("Finished Camera Movement");
         cameraCoRoutine = null;
+    }
+
+    private IEnumerator UnBlur()
+    {
+        float startTime = 0;
+        float progress;
+
+        while (startTime <= timeForCameraTweening)
+        {
+            progress = startTime / timeForCameraTweening;
+            DepthOfFieldModel.Settings settings = processingProfile.depthOfField.settings;
+            settings.aperture = Mathf.Lerp(startBlur, endBlur, progress);
+            settings.focalLength = Mathf.Lerp(250, 1, progress);
+            processingProfile.depthOfField.settings = settings;
+            startTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
