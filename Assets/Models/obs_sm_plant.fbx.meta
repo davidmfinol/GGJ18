@@ -1,16 +1,92 @@
 fileFormatVersion: 2
-guid: 0ce1ba08a50584a7e9a7697150c32b70
-timeCreated: 1517135311
+guid: 837e9b0b5fa961049badc850c80dca7e
+timeCreated: 1517171992
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: group5
+    100002: group6
+    100004: group6_pPlane35
+    100006: //RootNode
+    100008: polySurface107
+    100010: polySurface280
+    100012: polySurface281
+    100014: pPlane28
+    100016: pPlane29
+    100018: pPlane30
+    100020: pPlane31
+    100022: pPlane32
+    100024: pPlane32 1
+    100026: pPlane33
+    100028: pPlane33 1
+    100030: pPlane34
+    100032: pPlane34 1
+    100034: pPlane35
+    100036: pPlane35 1
+    100038: pPlane36
+    100040: pPlane37
+    100042: revolvedSurface3
+    100044: transform1
+    100046: transform10
+    100048: transform11
+    100050: transform12
+    100052: transform13
+    100054: transform14
+    100056: transform15
+    100058: transform16
+    100060: transform2
+    100062: transform3
+    100064: transform4
+    100066: transform5
+    100068: transform6
+    100070: transform7
+    100072: transform8
+    100074: transform9
+    400000: group5
+    400002: group6
+    400004: group6_pPlane35
+    400006: //RootNode
+    400008: polySurface107
+    400010: polySurface280
+    400012: polySurface281
+    400014: pPlane28
+    400016: pPlane29
+    400018: pPlane30
+    400020: pPlane31
+    400022: pPlane32
+    400024: pPlane32 1
+    400026: pPlane33
+    400028: pPlane33 1
+    400030: pPlane34
+    400032: pPlane34 1
+    400034: pPlane35
+    400036: pPlane35 1
+    400038: pPlane36
+    400040: pPlane37
+    400042: revolvedSurface3
+    400044: transform1
+    400046: transform10
+    400048: transform11
+    400050: transform12
+    400052: transform13
+    400054: transform14
+    400056: transform15
+    400058: transform16
+    400060: transform2
+    400062: transform3
+    400064: transform4
+    400066: transform5
+    400068: transform6
+    400070: transform7
+    400072: transform8
+    400074: transform9
     2100000: PaletteA
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: pCube57
+    2300000: group6_pPlane35
+    2300002: //RootNode
+    3300000: group6_pPlane35
+    3300002: //RootNode
+    4300000: group6_pPlane35
     9500000: //RootNode
   externalObjects: {}
   materials:

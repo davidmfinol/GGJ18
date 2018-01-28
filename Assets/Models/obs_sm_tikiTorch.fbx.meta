@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 0ce1ba08a50584a7e9a7697150c32b70
-timeCreated: 1517135311
+guid: d9be1c1aabdad624f98a2562609dcae8
+timeCreated: 1517172048
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,7 +10,7 @@ ModelImporter:
     2100000: PaletteA
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pCube57
+    4300000: pCube100
     9500000: //RootNode
   externalObjects: {}
   materials:
