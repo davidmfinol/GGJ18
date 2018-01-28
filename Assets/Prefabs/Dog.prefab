@@ -981,6 +981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centerDistanceForRotation: 0.5
   rotationObject: {fileID: 1655542158744274}
+  _CENTERFROMGROUND: 2
   isRadiusRestricted: 0
   radiusSize: 1
   isRectangleRestricted: 0
@@ -1010,8 +1011,10 @@ MonoBehaviour:
   intensity: 1
   sourceAudioSource: {fileID: 82050385527785732}
   waveReleaseSound:
-  - {fileID: 8300000, guid: 4bc820101bf8c41449f85bd83d99c746, type: 3}
-  - {fileID: 8300000, guid: 4702c4d48f7a88a44928263bb03f4999, type: 3}
+  - {fileID: 8300000, guid: bfa20513fd94805428be8987d9abe9a2, type: 3}
+  - {fileID: 8300000, guid: 637a724a43846914b978c13092ea4781, type: 3}
+  - {fileID: 8300000, guid: cb681d4cd4c058c45804f4c2234b1fc4, type: 3}
+  - {fileID: 8300000, guid: 1187e16fcbe430c4eb8cc30cf69a0f84, type: 3}
 --- !u!137 &137809525321250356
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
