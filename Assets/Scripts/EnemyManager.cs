@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour {
 
     private Material healthMaterial;
 
-        private void Awake()
+    private void Awake()
     {
         healthMaterial = healthRenderer.materials[0];
 
