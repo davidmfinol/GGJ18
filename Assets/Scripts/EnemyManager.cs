@@ -50,7 +50,14 @@ public class EnemyManager : MonoBehaviour {
 
     private void UpdateAnnoyanceLevel(float intensity)
     {
-        AnnoyanceLevel = Mathf.Clamp01(AnnoyanceLevel + intensity);
+        if (GameProgressionManager.instance.IsGamePaused)
+        {
+            AnnoyanceLevel = 0;
+        }
+        else
+        {
+            AnnoyanceLevel = Mathf.Clamp01(AnnoyanceLevel + intensity);
+        }
         Debug.Log("Bad Guy Annoyed " + AnnoyanceLevel + " much");
         Vector3 healthScale = healthBar.transform.localScale;
         healthScale.z = AnnoyanceLevel;

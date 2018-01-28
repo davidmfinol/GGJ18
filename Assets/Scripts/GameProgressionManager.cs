@@ -28,9 +28,19 @@ public class GameProgressionManager : MonoBehaviour {
 
     [HideInInspector]
     public bool isInGameMode = false;
+    
 
     private Coroutine cameraCoRoutine;
     private PostProcessingProfile processingProfile;
+    private bool isGamePaused = true;
+
+    public bool IsGamePaused
+    {
+        get
+        {
+            return isGamePaused;
+        }
+    }
 
     private void Awake()
     {
@@ -79,6 +89,7 @@ public class GameProgressionManager : MonoBehaviour {
 
     private IEnumerator CameraTweeningRoutine(Vector3 goToPosition)
     {
+        isGamePaused = true;
         float startTime = 0;
         float progress;
         Vector3 startPosition = Camera.main.transform.position;
@@ -92,8 +103,9 @@ public class GameProgressionManager : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
 
-        Debug.Log("Finished Camera Movement");
+        //Debug.Log("Finished Camera Movement");
         cameraCoRoutine = null;
+        isGamePaused = false;
     }
 
     private IEnumerator UnBlur()
