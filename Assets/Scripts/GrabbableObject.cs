@@ -48,6 +48,7 @@ public class GrabbableObject : MonoBehaviour {
             float distanceX = rectRestXTop + rectRestXButtom;
             float distanceZ = rectRestZLeft + rectRestZRight;
             Vector3 cubePosition = transform.position - new Vector3(rectRestXTop, 0, rectRestZLeft) + new Vector3(distanceX / 2, 2, distanceZ / 2);//new Vector3(transform.position.x + (distance.x / 2), transform.position.y + (distance.y / 2), 2);
+            cubePosition.y = 1;
             Vector3 cubeSize = new Vector3(distanceX, 2, distanceZ);
             Gizmos.DrawWireCube(cubePosition, cubeSize);
         }

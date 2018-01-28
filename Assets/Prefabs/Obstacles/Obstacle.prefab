@@ -283,7 +283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795a8da4e63c3d74cb9c5bc482835b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensityEffect: 0
+  type: 0
+  reflectorIntensityAmount: 0
+  microphoneTarget: {fileID: 0}
+  speedAmount: 2
 --- !u!114 &114685482868567876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -297,6 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centerDistanceForRotation: 0.61
   rotationObject: {fileID: 1381148575999608}
+  _CENTERFROMGROUND: 2
   isRadiusRestricted: 0
   radiusSize: 2.64
   isRectangleRestricted: 0
