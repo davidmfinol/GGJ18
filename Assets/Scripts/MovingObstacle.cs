@@ -22,7 +22,7 @@ public class MovingObstacle : MonoBehaviour
     {
         Vector3 lookAt = waypoints[currentWaypoint].position - transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(lookAt);
-        while (Quaternion.Dot(transform.rotation, targetRotation) > 1.01f || Quaternion.Dot(transform.rotation, targetRotation) < 0.99f) {
+        while (Quaternion.Dot(transform.rotation, targetRotation) > 1.001f || Quaternion.Dot(transform.rotation, targetRotation) < 0.999f) {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
             yield return null;
         }
