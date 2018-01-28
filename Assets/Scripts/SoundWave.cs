@@ -84,7 +84,7 @@ public class SoundWave : MonoBehaviour
 
     public void Refract(Collider collider)
     {
-        Quaternion rotate45 = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(Vector3.left), 45);
+        Quaternion rotate45 = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(Vector3.right), 45);
         transform.rotation = rotate45;
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
         PlayImpactSound();

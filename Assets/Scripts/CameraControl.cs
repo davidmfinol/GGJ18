@@ -32,6 +32,11 @@ public class CameraControl : MonoBehaviour
                 transform.position = transform.position + ((transform.position.y < max[GameProgressionManager.instance.CurrentLevel].y) ? Vector3.up * movementIncrement : Vector3.zero);
             else
                 transform.position = transform.position + ((transform.position.y > min[GameProgressionManager.instance.CurrentLevel].y) ? Vector3.down * movementIncrement : Vector3.zero);
+        } else if (Input.GetAxis("Mouse ScrollWheel") != 0) {
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+                transform.position = transform.position + ((transform.position.y < max[GameProgressionManager.instance.CurrentLevel].y) ? Vector3.up * movementIncrement : Vector3.zero);
+            else
+                transform.position = transform.position + ((transform.position.y > min[GameProgressionManager.instance.CurrentLevel].y) ? Vector3.down * movementIncrement : Vector3.zero);
         } else if (Input.GetKeyDown(KeyCode.C))
             GameProgressionManager.instance.GoToLevel(GameProgressionManager.instance.CurrentLevel);
     }
