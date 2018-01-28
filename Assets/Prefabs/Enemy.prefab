@@ -635,11 +635,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1efef6ee58858124a9408fa63d688c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentWaypoint: 0
+  targetWaypoint: 0
   healthBar: {fileID: 1868977755672670}
   healthRenderer: {fileID: 23774165738124620}
   healthBarColors:
   - {r: 0, g: 1, b: 0.2965517, a: 0.5882353}
   - {r: 1, g: 0, b: 0, a: 0.5882353}
+  hitSmall: {fileID: 8300000, guid: a5b32e67e25cb8142b8747956485c860, type: 3}
+  hitFullAnnoy: {fileID: 8300000, guid: 75096ac5a15ae0d489bf882cd7c48e2a, type: 3}
 --- !u!137 &137653306339635262
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
