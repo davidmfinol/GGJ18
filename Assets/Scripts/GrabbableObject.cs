@@ -132,6 +132,13 @@ public class GrabbableObject : MonoBehaviour {
                         moveDistance.z = 0;
                     }
                 }
+                if (isRadiusRestricted)
+                {
+                    if (Vector3.Distance(transform.position + moveDistance, startPosition) > radiusSize)
+                    {
+                        moveDistance = Vector3.zero;
+                    }
+                }
                 transform.position += moveDistance;
                 break;
             case DragMode.rotate:
