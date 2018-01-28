@@ -30,7 +30,7 @@ public class MovingObstacle : MonoBehaviour
 
     public IEnumerator MoveToWaypoint()
     {
-        while(Vector3.Distance(transform.position, waypoints[currentWaypoint].position) > 1) {
+        while (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) > 0.1f) {
             transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypoint].position, moveSpeed * Time.deltaTime);
             yield return null;
         }
