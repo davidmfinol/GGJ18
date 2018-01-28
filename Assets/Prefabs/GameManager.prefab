@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa575e17924ae348b71daeaf4219dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementIncrement: 1
+  movementIncrement: 0.1
   min:
   - {x: -10, y: 4, z: -10}
   - {x: -10, y: 4, z: -10}
@@ -650,7 +650,6 @@ MonoBehaviour:
   - {fileID: 4648308628767436}
   - {fileID: 4053723461385336}
   - {fileID: 4066332061730946}
-  EnemyDestinations: []
   levelSoundSource:
   - {fileID: 0}
   - {fileID: 0}

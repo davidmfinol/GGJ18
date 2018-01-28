@@ -28,15 +28,11 @@ public class GameProgressionManager : MonoBehaviour {
     [SerializeField]
     private Transform[] cameraPositions;
 
-    [Header("Enemy Locations")]
-    [SerializeField]
-    private Transform[] EnemyDestinations;
-
     [Header("Sound Sources Setup")]
     [SerializeField]
     private GameObject[] levelSoundSource;
 
-    
+
     [HideInInspector]
     public bool isInGameMode = false;
 
@@ -104,6 +100,14 @@ public class GameProgressionManager : MonoBehaviour {
                 StartCoroutine(UnBlur());
                 //Change blur effect 3.8 to 32
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Cancel")) {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
         }
     }
 

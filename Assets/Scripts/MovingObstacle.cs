@@ -17,6 +17,7 @@ public class MovingObstacle : MonoBehaviour
     {
         if (waypoints == null || waypoints.Count < 1 || !autoLoop)
             return;
+
         if (noTurn)
             StartCoroutine(MoveToWaypoint());
         else
