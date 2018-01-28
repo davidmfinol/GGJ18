@@ -3,15 +3,13 @@ using UnityEngine;
 
 public class SoundSource : MonoBehaviour
 {
+    public float startHeight = 2f;
     public GameObject soundPrefab;
     public List<Vector3> directions;
     public float speed = 10f;
     public float intensity = 1f;
     public AudioSource sourceAudioSource;
     public AudioClip[] waveReleaseSound;
-    
-
-    private List<SoundWave> soundWaves = new List<SoundWave>();
 
     void Update()
     {
@@ -22,27 +20,24 @@ public class SoundSource : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3) && directions.Count > 2)
             transform.rotation = Quaternion.LookRotation(directions[2].normalized);
 
-        for (int i = soundWaves.Count - 1; i >= 0; i--)
-            if (soundWaves[i] == null)
-                soundWaves.Remove(soundWaves[i]);
         if (Input.GetButtonDown("Submit"))
             StartSoundWave();
     }
 
     public void StartSoundWave()
     {
+        Vector3 startPosition = transform.position;
+        startPosition.y = startHeight;
         Quaternion startRotation = Quaternion.LookRotation(transform.forward);
-        SoundWave newSoundWave = Instantiate(soundPrefab, transform.position, startRotation).GetComponent<SoundWave>();
+        SoundWave newSoundWave = Instantiate(soundPrefab, startPosition, startRotation).GetComponent<SoundWave>();
         newSoundWave.GetComponent<Rigidbody>().velocity = transform.forward * speed;
         newSoundWave.speed = speed;
         newSoundWave.intensity = intensity;
-        Collider collider = newSoundWave.GetComponent<Collider>();
-        soundWaves.Add(newSoundWave);
         if (waveReleaseSound.Length != 0)
         {
             sourceAudioSource.clip = waveReleaseSound[Random.Range(0, waveReleaseSound.Length)];
             sourceAudioSource.Play();
         }
-        
+
     }
 }
