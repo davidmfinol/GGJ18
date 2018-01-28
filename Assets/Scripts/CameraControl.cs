@@ -11,8 +11,8 @@ public class CameraControl : MonoBehaviour
 
     void Start()
     {
-        min[1] = new Vector3(-10, 4, -10);
-        max[1] = new Vector3(10, 10, 10);
+        min[1] = new Vector3(-100, 0, -100);
+        max[1] = new Vector3(100, 100, 100);
     }
 
     void Update()
