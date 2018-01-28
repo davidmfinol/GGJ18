@@ -20,7 +20,7 @@ public class SoundSource : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3) && directions.Count > 2)
             transform.rotation = Quaternion.LookRotation(directions[2].normalized);
 
-        if (Input.GetButtonDown("Submit"))
+        if (Input.GetButtonDown("Submit") && !GameProgressionManager.instance.IsGamePaused)
             StartSoundWave();
     }
 
