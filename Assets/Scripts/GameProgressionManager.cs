@@ -31,6 +31,9 @@ public class GameProgressionManager : MonoBehaviour {
     [HideInInspector]
     public bool isInGameMode = false;
 
+    [Header("General Application Info")]
+    public float _GAMEHEIGHTCONST = 1;
+
 
     private Coroutine cameraCoRoutine;
     private PostProcessingProfile processingProfile;

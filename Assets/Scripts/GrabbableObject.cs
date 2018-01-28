@@ -9,9 +9,9 @@ public class GrabbableObject : MonoBehaviour {
     private float centerDistanceForRotation;
     [SerializeField]
     private GameObject rotationObject;
-    private DragMode currentDragMode = DragMode.move;
     [SerializeField]
-    private float _CENTERFROMGROUND = 2;
+    private LineRenderer lineRenderer;
+    private DragMode currentDragMode = DragMode.move;
 
     [Header("Restrictions")]
     [SerializeField]
@@ -67,6 +67,20 @@ public class GrabbableObject : MonoBehaviour {
     private void Start()
     {
         startPosition = transform.position;
+
+        if (isRectangleRestricted && lineRenderer != null)
+        {
+            Vector3[] linePositions = new Vector3[5];
+            linePositions[0] = new Vector3(startPosition.x - rectRestXTop, 0.02f, startPosition.z - rectRestZLeft);
+            linePositions[1] = new Vector3(startPosition.x - rectRestXTop, 0.02f, startPosition.z + rectRestZRight);
+            linePositions[2] = new Vector3(startPosition.x + rectRestXButtom, 0.02f, startPosition.z + rectRestZRight);
+            linePositions[3] = new Vector3(startPosition.x + rectRestXButtom, 0.02f, startPosition.z - rectRestZLeft);
+            linePositions[4] = new Vector3(startPosition.x - rectRestXTop, 0.02f, startPosition.z - rectRestZLeft);
+            
+            lineRenderer.positionCount = 5;
+            lineRenderer.SetPositions(linePositions);
+            lineRenderer.gameObject.SetActive(true);
+        }
     }
 
     private void OnMouseDown()
@@ -77,9 +91,9 @@ public class GrabbableObject : MonoBehaviour {
         //RaycastHit raycastHit;
         //Physics.Raycast(ray, out raycastHit);
         //mouseDownPosition = raycastHit.point;
-        mouseDownPosition = ray.GetPoint(Camera.main.transform.position.y - _CENTERFROMGROUND);
-        mouseDownPosition = new Vector3(mouseDownPosition.x, 0, mouseDownPosition.z);
-        Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
+        mouseDownPosition = ray.GetPoint(Camera.main.transform.position.y - GameProgressionManager.instance._GAMEHEIGHTCONST);
+        mouseDownPosition = new Vector3(mouseDownPosition.x, GameProgressionManager.instance._GAMEHEIGHTCONST, mouseDownPosition.z);
+        Vector3 objectPosition = new Vector3(transform.position.x, GameProgressionManager.instance._GAMEHEIGHTCONST, transform.position.z);
         float objectDistance = Vector3.Distance(objectPosition, mouseDownPosition);
         if (objectDistance > centerDistanceForRotation)
         {
@@ -89,8 +103,6 @@ public class GrabbableObject : MonoBehaviour {
         {
             currentDragMode = DragMode.move;
         }
-        //Disable rigidbody?
-        //Tell ray script to disable?
     }
 
     private void OnMouseUp()
@@ -116,8 +128,8 @@ public class GrabbableObject : MonoBehaviour {
         //RaycastHit raycastHit;
         //Physics.Raycast(ray, out raycastHit);
         //Vector3 newMousePosition = raycastHit.point;
-        Vector3 newMousePosition = ray.GetPoint(Camera.main.transform.position.y - _CENTERFROMGROUND);
-        newMousePosition = new Vector3(newMousePosition.x, 0, newMousePosition.z);
+        Vector3 newMousePosition = ray.GetPoint(Camera.main.transform.position.y - GameProgressionManager.instance._GAMEHEIGHTCONST);
+        newMousePosition = new Vector3(newMousePosition.x, GameProgressionManager.instance._GAMEHEIGHTCONST, newMousePosition.z);
         switch (currentDragMode)
         {
             case DragMode.move:
@@ -181,9 +193,9 @@ public class GrabbableObject : MonoBehaviour {
         if (!isMouseClicked)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 newMousePosition = ray.GetPoint(Camera.main.transform.position.y - _CENTERFROMGROUND);
-            newMousePosition = new Vector3(newMousePosition.x, 0, newMousePosition.z);
-            Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
+            Vector3 newMousePosition = ray.GetPoint(Camera.main.transform.position.y - GameProgressionManager.instance._GAMEHEIGHTCONST);
+            newMousePosition = new Vector3(newMousePosition.x, GameProgressionManager.instance._GAMEHEIGHTCONST, newMousePosition.z);
+            Vector3 objectPosition = new Vector3(transform.position.x, GameProgressionManager.instance._GAMEHEIGHTCONST, transform.position.z);
             float objectDistance = Vector3.Distance(objectPosition, newMousePosition);
             if (objectDistance > centerDistanceForRotation)
             {
