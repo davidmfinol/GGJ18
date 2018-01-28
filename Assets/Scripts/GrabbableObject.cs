@@ -10,6 +10,8 @@ public class GrabbableObject : MonoBehaviour {
     [SerializeField]
     private GameObject rotationObject;
     private DragMode currentDragMode = DragMode.move;
+    [SerializeField]
+    private float _CENTERFROMGROUND = 2;
 
     [Header("Restrictions")]
     [SerializeField]
@@ -71,9 +73,10 @@ public class GrabbableObject : MonoBehaviour {
         isMouseClicked = true;
         //StartCoroutine(LookForMouseUp());
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit raycastHit;
-        Physics.Raycast(ray, out raycastHit);
-        mouseDownPosition = raycastHit.point;
+        //RaycastHit raycastHit;
+        //Physics.Raycast(ray, out raycastHit);
+        //mouseDownPosition = raycastHit.point;
+        mouseDownPosition = ray.GetPoint(Camera.main.transform.position.y - _CENTERFROMGROUND);
         mouseDownPosition = new Vector3(mouseDownPosition.x, 0, mouseDownPosition.z);
         Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
         float objectDistance = Vector3.Distance(objectPosition, mouseDownPosition);
@@ -109,9 +112,10 @@ public class GrabbableObject : MonoBehaviour {
     private void OnMouseDrag()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit raycastHit;
-        Physics.Raycast(ray, out raycastHit);
-        Vector3 newMousePosition = raycastHit.point;
+        //RaycastHit raycastHit;
+        //Physics.Raycast(ray, out raycastHit);
+        //Vector3 newMousePosition = raycastHit.point;
+        Vector3 newMousePosition = ray.GetPoint(Camera.main.transform.position.y - _CENTERFROMGROUND);
         newMousePosition = new Vector3(newMousePosition.x, 0, newMousePosition.z);
         switch (currentDragMode)
         {
@@ -168,7 +172,8 @@ public class GrabbableObject : MonoBehaviour {
     {
         if (!isMouseClicked)
         {
-            Vector3 newMousePosition = MouseInputReceiver.instance.currentMousePosition;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 newMousePosition = ray.GetPoint(Camera.main.transform.position.y - _CENTERFROMGROUND);
             newMousePosition = new Vector3(newMousePosition.x, 0, newMousePosition.z);
             Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
             float objectDistance = Vector3.Distance(objectPosition, newMousePosition);
