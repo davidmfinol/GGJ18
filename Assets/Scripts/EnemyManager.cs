@@ -20,6 +20,12 @@ public class EnemyManager : MonoBehaviour
 
     private Material healthMaterial;
 
+    [Header("Sound")]
+    [SerializeField]
+    private AudioClip hitSmall;
+    [SerializeField]
+    private AudioClip hitFullAnnoy;
+
 
     public IEnumerator MoveToWaypoint()
     {
@@ -60,6 +66,11 @@ public class EnemyManager : MonoBehaviour
         SoundWave soundWave = hittingObj.GetComponent<SoundWave>();
         if (soundWave != null)
         {
+            Debug.Log(soundWave.waveImpactSound[1]);
+            if (soundWave.waveImpactSound.Length > 0)
+            {
+                AudioManager.Play(soundWave.waveImpactSound[Random.Range(0, soundWave.waveImpactSound.Length)], soundWave.intensity * 0.6f);
+            }
             Destroy(hittingObj);
             UpdateAnnoyanceLevel(soundWave.intensity);
         }
@@ -70,10 +81,18 @@ public class EnemyManager : MonoBehaviour
         if (GameProgressionManager.instance.IsGamePaused)
         {
             AnnoyanceLevel = 0;
+            if (hitFullAnnoy != null)
+            {
+                AudioManager.Play(hitFullAnnoy);
+            }
         }
         else
         {
             AnnoyanceLevel = Mathf.Clamp01(AnnoyanceLevel + intensity);
+            if (hitSmall != null)
+            {
+                AudioManager.Play(hitSmall);
+            }
         }
         Debug.Log("Bad Guy Annoyed " + AnnoyanceLevel + " much");
         Vector3 healthScale = healthBar.transform.localScale;

@@ -61,9 +61,9 @@ public class AudioManager : MonoBehaviour {
                 if (!watchList[i].isPlaying)
                 {
                     GameObject tempAudioSource = watchList[i].gameObject;
-                    tempAudioSource.SetActive(false);
                     temporaryAudioSourceList.Add(tempAudioSource);
                     watchList.RemoveAt(i);
+                    tempAudioSource.SetActive(false);
                 }
             }
         }
@@ -73,7 +73,7 @@ public class AudioManager : MonoBehaviour {
     {
         GameObject availableTempASource = FindNextAvailableAudioSource();
 
-        if (availableTempASource == null || audioClip != null)
+        if (availableTempASource == null || audioClip == null)
         {
             return;
         }

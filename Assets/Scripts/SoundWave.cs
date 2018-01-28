@@ -90,7 +90,7 @@ public class SoundWave : MonoBehaviour
         PlayImpactSound();
     }
 
-    private void PlayImpactSound()
+    public void PlayImpactSound()
     {
         if (waveImpactSound.Length != 0)
         {
