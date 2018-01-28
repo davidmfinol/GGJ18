@@ -15,6 +15,7 @@ public class SoundObstacle : MonoBehaviour
 {
     public SoundObstacleType type;
     public Transform target;
+    public float reflectorIntensityAmount = 0f;
 
     public float IntensityEffect {
         get { return intensityEffect; }
@@ -26,6 +27,7 @@ public class SoundObstacle : MonoBehaviour
     {
         switch (type) {
             case SoundObstacleType.Reflector:
+                IntensityEffect = reflectorIntensityAmount;
                 break;
             case SoundObstacleType.Amplifier:
                 IntensityEffect = 0.25f;
