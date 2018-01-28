@@ -652,8 +652,8 @@ MonoBehaviour:
   healthBarColors:
   - {r: 0, g: 1, b: 0.2965517, a: 0.5882353}
   - {r: 1, g: 0, b: 0, a: 0.5882353}
-  hitSmall: {fileID: 8300000, guid: a5b32e67e25cb8142b8747956485c860, type: 3}
-  hitFullAnnoy: {fileID: 8300000, guid: 75096ac5a15ae0d489bf882cd7c48e2a, type: 3}
+  hitSmall: {fileID: 8300000, guid: 8a356cd6687777442972032135aaeb14, type: 3}
+  hitFullAnnoy: {fileID: 8300000, guid: ad86e52ff289f6e43b88418deeb97a45, type: 3}
 --- !u!137 &137653306339635262
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
