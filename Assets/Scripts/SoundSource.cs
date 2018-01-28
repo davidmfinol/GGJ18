@@ -33,6 +33,7 @@ public class SoundSource : MonoBehaviour
         newSoundWave.GetComponent<Rigidbody>().velocity = transform.forward * speed;
         newSoundWave.speed = speed;
         newSoundWave.intensity = intensity;
+        newSoundWave.waveImpactSound = waveReleaseSound;
         if (waveReleaseSound.Length != 0)
         {
             sourceAudioSource.clip = waveReleaseSound[Random.Range(0, waveReleaseSound.Length)];
