@@ -28,6 +28,11 @@ public class GameProgressionManager : MonoBehaviour {
     [SerializeField]
     private Transform[] EnemyDestinations;
 
+    [Header("Sound Sources Setup")]
+    [SerializeField]
+    private GameObject[] levelSoundSource;
+
+    
     [HideInInspector]
     public bool isInGameMode = false;
 
@@ -79,6 +84,8 @@ public class GameProgressionManager : MonoBehaviour {
         settings.aperture = startBlur;
         settings.focalLength = 250f;
         processingProfile.depthOfField.settings = settings;
+
+        ActivateLevelSoundSources(0);
     }
 
     private void Update()
@@ -89,7 +96,7 @@ public class GameProgressionManager : MonoBehaviour {
             {
                 currentLevel++;
                 isInGameMode = true;
-                CameraTweening(cameraPositions[1].position);
+                GoToLevel(1);
                 StartCoroutine(UnBlur());
                 //Change blur effect 3.8 to 32
             }
@@ -146,5 +153,24 @@ public class GameProgressionManager : MonoBehaviour {
     public void GoToLevel(int levelIndex)
     {
         CameraTweening(cameraPositions[levelIndex].transform.position);
+        ActivateLevelSoundSources(levelIndex);
+    }
+
+    public void ActivateLevelSoundSources(int levelIndex)
+    {
+        for (int i = 0; i < levelSoundSource.Length; i++)
+        {
+            if (i == levelIndex)
+            {
+                if (levelSoundSource[i] != null)
+                {
+                    levelSoundSource[i].SetActive(true);
+                }
+            }
+            else if (levelSoundSource[i] != null)
+            {
+                levelSoundSource[i].SetActive(false);
+            }
+        }
     }
 }
