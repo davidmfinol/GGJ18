@@ -5780,6 +5780,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: min.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: max.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4006291621637814, guid: 4d4c0b421a902db46925e3bc5d4259ea, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5847,6 +5857,96 @@ Prefab:
     - target: {fileID: 4053723461385336, guid: 4d4c0b421a902db46925e3bc5d4259ea, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: min.Array.data[0].y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: min.Array.data[1].y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: min.Array.data[2].y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: max.Array.data[0].y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: max.Array.data[1].y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: max.Array.data[2].y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: min.Array.data[0].x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: min.Array.data[1].x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: min.Array.data[1].z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: max.Array.data[1].x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: max.Array.data[1].z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: min.Array.data[2].x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: max.Array.data[0].x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: max.Array.data[2].x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: max.Array.data[2].z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: max.Array.data[0].z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: min.Array.data[2].z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239302223745628, guid: 4d4c0b421a902db46925e3bc5d4259ea,
+        type: 2}
+      propertyPath: min.Array.data[0].z
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d4c0b421a902db46925e3bc5d4259ea, type: 2}
