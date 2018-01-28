@@ -19,6 +19,8 @@ ModelImporter:
     100022: wing4
     100024: wing5
     100026: wing6
+    100028: joint1
+    100030: joint2
     400000: beak
     400002: //RootNode
     400004: group2
@@ -33,6 +35,8 @@ ModelImporter:
     400022: wing4
     400024: wing5
     400026: wing6
+    400028: joint1
+    400030: joint2
     2100000: PaletteA
     4300000: group2
     9500000: //RootNode
