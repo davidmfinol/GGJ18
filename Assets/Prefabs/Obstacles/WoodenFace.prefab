@@ -285,5 +285,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  target: {fileID: 0}
   reflectorIntensityAmount: 0
+  microphoneTarget: {fileID: 0}

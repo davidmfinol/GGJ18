@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 99cf0b26caf4f6f4581e56ea5243da12
-timeCreated: 1517116629
+guid: cdd8f474e74e313478e2064b7903c892
+timeCreated: 1517119171
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,18 +10,13 @@ ModelImporter:
     2100000: PaletteA
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Env_Wall_Window
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: PaletteA
-    second: {fileID: 2100000, guid: 90343c4808f155647a26bf609cedeb70, type: 2}
+    4300000: Obs_Shaker
+  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

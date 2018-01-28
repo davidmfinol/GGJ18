@@ -1,27 +1,48 @@
 fileFormatVersion: 2
-guid: 99cf0b26caf4f6f4581e56ea5243da12
-timeCreated: 1517116629
+guid: 503f62909dbcd534eb62356131dbf10a
+timeCreated: 1517116350
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: beak
+    100002: //RootNode
+    100004: group2
+    100006: head
+    100008: main1
+    100010: tail1
+    100012: tail2
+    100014: tail3
+    100016: wing1
+    100018: wing2
+    100020: wing3
+    100022: wing4
+    100024: wing5
+    100026: wing6
+    400000: beak
+    400002: //RootNode
+    400004: group2
+    400006: head
+    400008: main1
+    400010: tail1
+    400012: tail2
+    400014: tail3
+    400016: wing1
+    400018: wing2
+    400020: wing3
+    400022: wing4
+    400024: wing5
+    400026: wing6
     2100000: PaletteA
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Env_Wall_Window
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: PaletteA
-    second: {fileID: 2100000, guid: 90343c4808f155647a26bf609cedeb70, type: 2}
+    4300000: group2
+    9500000: //RootNode
+    13700000: group2
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -90,7 +111,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

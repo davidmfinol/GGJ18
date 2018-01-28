@@ -15,6 +15,7 @@ public class SoundObstacle : MonoBehaviour
     public SoundObstacleType type;
     public float reflectorIntensityAmount = 0f;
     public Transform microphoneTarget;
+    public float speedAmount = 2.0f;
 
     public float IntensityEffect {
         get { return intensityEffect; }
