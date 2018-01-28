@@ -91,7 +91,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1783166480579868
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,8 +120,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4257586773126614}
   - component: {fileID: 54767041550501252}
-  - component: {fileID: 114474477931828854}
-  - component: {fileID: 114896933391131036}
   m_Layer: 0
   m_Name: Amplifier
   m_TagString: Untagged
@@ -136,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1929991023681144}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.437, y: 0, z: 0.57}
+  m_LocalPosition: {x: 10.29, y: 0, z: 5.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4329169986112034}
@@ -145,7 +143,7 @@ Transform:
   - {fileID: 4939993641237586}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4329169986112034
 Transform:
   m_ObjectHideFlags: 1
@@ -274,7 +272,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 25e933d148e9a8b46ba5728ca67aaae3, type: 3}
+  - {fileID: 2100000, guid: aa19a4e811c304e4fb0a061795215ef3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -410,42 +408,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114474477931828854
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1929991023681144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af0f805cd8219e9499a2082e6c531da1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  centerDistanceForRotation: 0.8
-  rotationObject: {fileID: 1412579009998380}
-  lineRenderer: {fileID: 120024412028051276}
-  isRadiusRestricted: 0
-  radiusSize: 1.98
-  isRectangleRestricted: 1
-  rectRestXTop: 0.26
-  rectRestXButtom: 1.34
-  rectRestZLeft: 1.07
-  rectRestZRight: 0.97
---- !u!114 &114896933391131036
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1929991023681144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 795a8da4e63c3d74cb9c5bc482835b2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  reflectorIntensityAmount: 0
-  microphoneTarget: {fileID: 0}
-  speedAmount: 2
 --- !u!120 &120024412028051276
 LineRenderer:
   m_ObjectHideFlags: 1
