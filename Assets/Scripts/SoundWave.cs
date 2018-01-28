@@ -62,6 +62,7 @@ public class SoundWave : MonoBehaviour
         Vector3 newDir = Vector3.Reflect(curDir, contact.normal);
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, newDir);
         GetComponent<Rigidbody>().velocity = newDir.normalized * speed;
+        PlayImpactSound();
     }
 
     public void Amplify(Transform target)
@@ -70,6 +71,7 @@ public class SoundWave : MonoBehaviour
         Vector3 forward = target.forward;
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, forward);
         GetComponent<Rigidbody>().velocity = forward * speed;
+        PlayImpactSound();
     }
 
     public void Refract(Collider collider)
@@ -92,6 +94,7 @@ public class SoundWave : MonoBehaviour
         }
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, normal);
         GetComponent<Rigidbody>().velocity = normal * speed;
+        PlayImpactSound();
     }
 
     private void PlayImpactSound()
@@ -99,6 +102,7 @@ public class SoundWave : MonoBehaviour
         if (waveImpactSound.Length != 0)
         {
             waveAudioSource.clip = waveImpactSound[Random.Range(0, waveImpactSound.Length)];
+            waveAudioSource.volume = intensity;
             waveAudioSource.Play();
         }
     }
