@@ -10,7 +10,6 @@ public enum SoundObstacleType
     SpeedBoost
 }
 
-[RequireComponent(typeof(Collider))]
 public class SoundObstacle : MonoBehaviour
 {
     public SoundObstacleType type;
