@@ -8,7 +8,7 @@ public class SoundWave : MonoBehaviour
     public float speed;
     public float intensity;
     public AudioSource waveAudioSource;
-    public AudioClip[] waveImpactSound;
+    public AudioClip waveImpactSound;
 
     public AudioClip reflectorSound;
     public AudioClip speedBoostSound;
@@ -92,9 +92,9 @@ public class SoundWave : MonoBehaviour
 
     public void PlayImpactSound()
     {
-        if (waveImpactSound.Length != 0)
+        if (waveImpactSound != null)
         {
-            waveAudioSource.clip = waveImpactSound[Random.Range(0, waveImpactSound.Length)];
+            waveAudioSource.clip = waveImpactSound;
             waveAudioSource.volume = intensity*0.6f;
             waveAudioSource.Play();
         }

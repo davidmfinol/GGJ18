@@ -538,8 +538,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1916246185368858}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.021, y: 0, z: 1.594}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -5.731, y: 0.549, z: -2.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4617575611272772}
@@ -547,7 +547,7 @@ Transform:
   - {fileID: 4671685836712036}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4428252757194754
 Transform:
   m_ObjectHideFlags: 1
@@ -859,10 +859,12 @@ MonoBehaviour:
   intensity: 1
   sourceAudioSource: {fileID: 82050385527785732}
   waveReleaseSound:
-  - {fileID: 8300000, guid: bfa20513fd94805428be8987d9abe9a2, type: 3}
-  - {fileID: 8300000, guid: 637a724a43846914b978c13092ea4781, type: 3}
-  - {fileID: 8300000, guid: cb681d4cd4c058c45804f4c2234b1fc4, type: 3}
-  - {fileID: 8300000, guid: 1187e16fcbe430c4eb8cc30cf69a0f84, type: 3}
+  - {fileID: 8300000, guid: d60036f1823c2ed428f225a13d204794, type: 3}
+  - {fileID: 8300000, guid: 134cd28b392a94a4e9daa7d63ccd53af, type: 3}
+  - {fileID: 8300000, guid: 7f30bc93220d71347af1322099ec2529, type: 3}
+  - {fileID: 8300000, guid: a32fa400c0ec98843bb5a5a19ae0b1b2, type: 3}
+  - {fileID: 8300000, guid: a3b314a61b9b1974990579117e22574b, type: 3}
+  - {fileID: 8300000, guid: 9c075f0041eee4046a64f6fa11d4037b, type: 3}
 --- !u!137 &137809525321250356
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
