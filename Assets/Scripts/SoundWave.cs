@@ -46,13 +46,13 @@ public class SoundWave : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        SoundObstacle soundObstacle = other.gameObject.GetComponent<SoundObstacle>();
-        if (soundObstacle == null || soundObstacle.type != SoundObstacleType.Water)
-            return;
-        Refract(other);
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    SoundObstacle soundObstacle = other.gameObject.GetComponent<SoundObstacle>();
+    //    if (soundObstacle == null || soundObstacle.type != SoundObstacleType.Water)
+    //        return;
+    //    Refract(other);
+    //}
 
     public void Reflect(ContactPoint contact)
     {
@@ -72,7 +72,24 @@ public class SoundWave : MonoBehaviour
 
     public void Refract(Collider collider)
     {
-
+        Vector3 closestPoint = collider.ClosestPointOnBounds(transform.position);
+        closestPoint.y = 2;
+        Vector3 normal = (collider.transform.position - closestPoint).normalized;
+        float right = closestPoint.x - collider.transform.position.x;
+        float front = closestPoint.z - collider.transform.position.z;
+        if (Mathf.Abs(right) > Mathf.Abs(front)) { // sides
+            if (right > 0)
+                normal = Vector3.right;
+            else
+                normal = Vector3.left;
+        } else { // faces
+            if (front > 0)
+                normal = Vector3.forward;
+            else
+                normal = Vector3.back;
+        }
+        transform.rotation = Quaternion.FromToRotation(Vector3.forward, normal);
+        GetComponent<Rigidbody>().velocity = normal * speed;
     }
 
     void Update()
