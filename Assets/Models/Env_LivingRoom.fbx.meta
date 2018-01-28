@@ -1,20 +1,29 @@
 fileFormatVersion: 2
-guid: a50c4425c38be4647a9fbdc4f1482129
-timeCreated: 1517091566
+guid: 04efcf2302e33554b87380bacd328479
+timeCreated: 1517098729
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Env_LivingRoomDoorA
+    100004: Env_LivingRoomDoorB
     400000: //RootNode
-    2100000: phong1
+    400002: Env_LivingRoomDoorA
+    400004: Env_LivingRoomDoorB
+    2100000: PaletteA
     2300000: //RootNode
+    2300002: Env_LivingRoomDoorA
+    2300004: Env_LivingRoomDoorB
     3300000: //RootNode
-    4300000: dog
-    9500000: //RootNode
+    3300002: Env_LivingRoomDoorA
+    3300004: Env_LivingRoomDoorB
+    4300000: Env_LivingRoom
+    4300002: Env_LivingRoomDoorB
+    4300004: Env_LivingRoomDoorA
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -42,7 +51,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.5
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -61,7 +70,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -86,7 +95,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
