@@ -108,7 +108,14 @@ public class EnemyManager : MonoBehaviour
         healthMaterial.color = Color.Lerp(healthBarColors[0], healthBarColors[1], AnnoyanceLevel);
 
         if (AnnoyanceLevel > 0.8f) {
-            targetWaypoint = 6;
+            if (GameProgressionManager.instance.CurrentLevel == 1)
+            {
+                targetWaypoint = 6;
+            }
+            else
+            {
+                targetWaypoint = 9;
+            }
             StartCoroutine(MoveToWaypoint());
             GameProgressionManager.instance.GoToLevel(GameProgressionManager.instance.CurrentLevel + 1);
         }

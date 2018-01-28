@@ -135,8 +135,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1929991023681144}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.46, y: 0, z: 1.04}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -5.437, y: 0, z: 0.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4329169986112034}
@@ -422,8 +422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerDistanceForRotation: 0.48
-  rotationObject: {fileID: 0}
-  lineRenderer: {fileID: 0}
+  rotationObject: {fileID: 1412579009998380}
+  lineRenderer: {fileID: 120024412028051276}
   isRadiusRestricted: 0
   radiusSize: 1
   isRectangleRestricted: 1
