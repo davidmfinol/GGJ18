@@ -131,12 +131,32 @@ public class GrabbableObject : MonoBehaviour {
                 transform.position += moveDistance;
                 break;
             case DragMode.rotate:
+                /* Rotate the object freely
                 Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
                 Vector3 oldDirection = objectPosition - mouseDownPosition;
                 Vector3 newDirection = objectPosition - newMousePosition;
                 Quaternion m_MyQuaternion = new Quaternion();
                 m_MyQuaternion.SetFromToRotation(oldDirection, newDirection);
                 transform.rotation = m_MyQuaternion * transform.rotation;
+                */
+
+                //Rotate the object snapping to 45 degrees
+                Vector3 worldForward = transform.forward.normalized;
+                Vector3 worldRight45 = (transform.right + worldForward).normalized;
+                Vector3 worldLeft45 = (worldForward - transform.right).normalized;
+                float mouseFromForward = Vector3.Distance(transform.position + worldForward, newMousePosition);
+                if (mouseFromForward > Vector3.Distance(transform.position + worldLeft45, newMousePosition))
+                {
+                    Quaternion m_MyQuaternion = new Quaternion();
+                    m_MyQuaternion.SetFromToRotation(worldForward, worldLeft45);
+                    transform.rotation = m_MyQuaternion * transform.rotation;
+                }
+                else if (mouseFromForward > Vector3.Distance(transform.position + worldRight45, newMousePosition))
+                {
+                    Quaternion m_MyQuaternion = new Quaternion();
+                    m_MyQuaternion.SetFromToRotation(worldForward, worldRight45);
+                    transform.rotation = m_MyQuaternion * transform.rotation;
+                }
                 break;
             default:
                 break;
