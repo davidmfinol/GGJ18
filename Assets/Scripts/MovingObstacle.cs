@@ -7,6 +7,7 @@ public class MovingObstacle : MonoBehaviour
     public List<Transform> waypoints = new List<Transform>();
     public float moveSpeed = 2.5f;
     public float turnSpeed = 2.5f;
+    public bool bypassTurn = false;
 
     private int currentWaypoint = 0;
 
@@ -30,13 +31,19 @@ public class MovingObstacle : MonoBehaviour
 
     public IEnumerator MoveToWaypoint()
     {
-        while(Vector3.Distance(transform.position, waypoints[currentWaypoint].position) > 1) {
+        while (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) > 0.1f) {
             transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypoint].position, moveSpeed * Time.deltaTime);
             yield return null;
         }
         currentWaypoint++;
         if (currentWaypoint >= waypoints.Count)
             currentWaypoint = 0;
-        StartCoroutine(TurnToWayPoint());
+
+        if (bypassTurn) {
+            transform.LookAt(waypoints[currentWaypoint]);
+            StartCoroutine(MoveToWaypoint());
+        }
+        else
+            StartCoroutine(TurnToWayPoint());
     }
 }
