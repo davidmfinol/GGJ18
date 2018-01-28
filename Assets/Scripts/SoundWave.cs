@@ -35,6 +35,10 @@ public class SoundWave : MonoBehaviour
 
         intensity += soundObstacle.IntensityEffect;
         switch (soundObstacle.type) {
+            case SoundObstacleType.SpeedBoost:
+                speed += soundObstacle.speedAmount;
+                Amplify(soundObstacle.transform);
+                break;
             case SoundObstacleType.Water:
                 Refract(other);
                 break;
