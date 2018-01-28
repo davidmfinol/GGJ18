@@ -118,7 +118,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 752643683ded3fb49bf44e8b4b4ef91a, type: 3}
+  - {fileID: 2100000, guid: 90343c4808f155647a26bf609cedeb70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -273,10 +273,10 @@ MonoBehaviour:
   intensity: 0
   waveAudioSource: {fileID: 82015972036428866}
   waveImpactSound:
-  - {fileID: 8300000, guid: bfa20513fd94805428be8987d9abe9a2, type: 3}
-  - {fileID: 8300000, guid: 637a724a43846914b978c13092ea4781, type: 3}
-  - {fileID: 8300000, guid: cb681d4cd4c058c45804f4c2234b1fc4, type: 3}
-  - {fileID: 8300000, guid: 1187e16fcbe430c4eb8cc30cf69a0f84, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!135 &135575378003916980
 SphereCollider:
   m_ObjectHideFlags: 1
