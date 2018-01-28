@@ -8,6 +8,7 @@ public class MovingObstacle : MonoBehaviour
     public float moveSpeed = 2.5f;
     public float turnSpeed = 2.5f;
     public bool bypassTurn = false;
+    public bool noTurn = false;
     public bool autoLoop = true;
 
     private int currentWaypoint = 0;
@@ -16,7 +17,10 @@ public class MovingObstacle : MonoBehaviour
     {
         if (waypoints == null || waypoints.Count < 1 || !autoLoop)
             return;
-        StartCoroutine(TurnToWayPoint());
+        if (noTurn)
+            StartCoroutine(MoveToWaypoint());
+        else
+            StartCoroutine(TurnToWayPoint());
     }
 
     public IEnumerator TurnToWayPoint()
@@ -42,7 +46,8 @@ public class MovingObstacle : MonoBehaviour
             currentWaypoint = 0;
 
         if (bypassTurn) {
-            transform.LookAt(waypoints[currentWaypoint]);
+            if (!noTurn)
+                transform.LookAt(waypoints[currentWaypoint]);
             StartCoroutine(MoveToWaypoint());
         }
         else
