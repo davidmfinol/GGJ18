@@ -176,7 +176,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f5d6903af48656f40ba2d669bc6ae212, type: 3}
+  - {fileID: 2100000, guid: 90343c4808f155647a26bf609cedeb70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,3 +287,4 @@ MonoBehaviour:
   type: 2
   reflectorIntensityAmount: 0
   microphoneTarget: {fileID: 0}
+  speedAmount: 2
