@@ -66,10 +66,9 @@ public class EnemyManager : MonoBehaviour
         SoundWave soundWave = hittingObj.GetComponent<SoundWave>();
         if (soundWave != null)
         {
-            Debug.Log(soundWave.waveImpactSound[1]);
-            if (soundWave.waveImpactSound.Length > 0)
+            if (soundWave.waveImpactSound != null)
             {
-                AudioManager.Play(soundWave.waveImpactSound[Random.Range(0, soundWave.waveImpactSound.Length)], soundWave.intensity * 0.6f);
+                AudioManager.Play(soundWave.waveImpactSound, soundWave.intensity * 0.6f);
             }
             Destroy(hittingObj);
             UpdateAnnoyanceLevel(soundWave.intensity);

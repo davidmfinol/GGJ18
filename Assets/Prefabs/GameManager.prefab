@@ -615,7 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseInputReciever: {fileID: 114843725492826202}
-  timeForCameraTweening: 2
+  timeForCameraTweening: 3
   cameraMotionCurve:
     serializedVersion: 2
     m_Curve:
