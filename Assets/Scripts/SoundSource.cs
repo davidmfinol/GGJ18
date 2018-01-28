@@ -11,14 +11,26 @@ public class SoundSource : MonoBehaviour
     public AudioSource sourceAudioSource;
     public AudioClip[] waveReleaseSound;
 
+    [Header("DirectionChooser")]
+    public GameObject[] directionSelection;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && directions.Count > 1)
+        {
             transform.rotation = Quaternion.LookRotation(directions[0].normalized);
+            UpdateSelection(0);
+        }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && directions.Count > 1)
+        {
             transform.rotation = Quaternion.LookRotation(directions[1].normalized);
+            UpdateSelection(1);
+        }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && directions.Count > 2)
+        {
             transform.rotation = Quaternion.LookRotation(directions[2].normalized);
+            UpdateSelection(2);
+        }
 
         if (Input.GetButtonDown("Submit") && !GameProgressionManager.instance.IsGamePaused)
             StartSoundWave();
@@ -39,6 +51,21 @@ public class SoundSource : MonoBehaviour
             newSoundWave.waveImpactSound = playedClip;
             sourceAudioSource.clip = playedClip;
             sourceAudioSource.Play();
+        }
+    }
+
+    public void UpdateSelection(int number)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (number == i)
+            {
+                directionSelection[i].SetActive(true);
+            }
+            else
+            {
+                directionSelection[i].SetActive(false);
+            }
         }
     }
 }
