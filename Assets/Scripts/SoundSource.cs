@@ -38,6 +38,5 @@ public class SoundSource : MonoBehaviour
             sourceAudioSource.clip = waveReleaseSound[Random.Range(0, waveReleaseSound.Length)];
             sourceAudioSource.Play();
         }
-
     }
 }
