@@ -37,6 +37,18 @@ public class CameraControl : MonoBehaviour
                 transform.position = transform.position + ((transform.position.y < max[GameProgressionManager.instance.CurrentLevel].y) ? Vector3.up * movementIncrement : Vector3.zero);
             else
                 transform.position = transform.position + ((transform.position.y > min[GameProgressionManager.instance.CurrentLevel].y) ? Vector3.down * movementIncrement : Vector3.zero);
+        } else if (Input.GetMouseButton(2)) {
+            if (Input.GetAxis("Mouse X") != 0) {
+                if (Input.GetAxis("Mouse X") > 0)
+                    transform.position = transform.position + ((transform.position.x < max[GameProgressionManager.instance.CurrentLevel].x) ? Vector3.right * movementIncrement : Vector3.zero);
+                else
+                    transform.position = transform.position + ((transform.position.x > min[GameProgressionManager.instance.CurrentLevel].x) ? Vector3.left * movementIncrement : Vector3.zero);
+            } else if (Input.GetAxis("Mouse Y") != 0) {
+                if (Input.GetAxis("Mouse Y") > 0)
+                    transform.position = transform.position + ((transform.position.z < max[GameProgressionManager.instance.CurrentLevel].z) ? Vector3.forward * movementIncrement : Vector3.zero);
+                else
+                    transform.position = transform.position + ((transform.position.z > min[GameProgressionManager.instance.CurrentLevel].z) ? Vector3.back * movementIncrement : Vector3.zero);
+            }
         } else if (Input.GetKeyDown(KeyCode.C))
             GameProgressionManager.instance.GoToLevel(GameProgressionManager.instance.CurrentLevel);
     }
