@@ -8,12 +8,13 @@ public class MovingObstacle : MonoBehaviour
     public float moveSpeed = 2.5f;
     public float turnSpeed = 2.5f;
     public bool bypassTurn = false;
+    public bool autoLoop = true;
 
     private int currentWaypoint = 0;
 
     void Start()
     {
-        if (waypoints == null || waypoints.Count < 1)
+        if (waypoints == null || waypoints.Count < 1 || !autoLoop)
             return;
         StartCoroutine(TurnToWayPoint());
     }
@@ -26,7 +27,8 @@ public class MovingObstacle : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
             yield return null;
         }
-        StartCoroutine(MoveToWaypoint());
+        if (autoLoop)
+            StartCoroutine(MoveToWaypoint());
     }
 
     public IEnumerator MoveToWaypoint()

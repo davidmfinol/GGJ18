@@ -53,6 +53,9 @@ public class GameProgressionManager : MonoBehaviour {
         get {
             return currentLevel;
         }
+        set {
+            currentLevel = value;
+        }
     }
 
     private void Awake()

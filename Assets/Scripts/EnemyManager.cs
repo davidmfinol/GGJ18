@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour {
+public class EnemyManager : MonoBehaviour
+{
+    public const float MoveSpeed = 3f;
+    public List<Transform> waypoints = new List<Transform>();
+    public int currentWaypoint = 0;
+    public int targetWaypoint = 0;
 
     private float AnnoyanceLevel = 0;
     [SerializeField]
@@ -14,6 +19,18 @@ public class EnemyManager : MonoBehaviour {
     private Color[] healthBarColors;
 
     private Material healthMaterial;
+
+
+    public IEnumerator MoveToWaypoint()
+    {
+        while (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) > 0.1f) {
+            transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypoint].position, MoveSpeed * Time.deltaTime);
+            yield return null;
+        }
+        currentWaypoint++;
+        if (currentWaypoint < targetWaypoint)
+            StartCoroutine(MoveToWaypoint());
+    }
 
     private void Awake()
     {
@@ -71,5 +88,11 @@ public class EnemyManager : MonoBehaviour {
             healthBar.SetActive(true);
         }
         healthMaterial.color = Color.Lerp(healthBarColors[0], healthBarColors[1], AnnoyanceLevel);
+
+        if (AnnoyanceLevel > 0.8f) {
+            targetWaypoint = 6;
+            StartCoroutine(MoveToWaypoint());
+            GameProgressionManager.instance.GoToLevel(2);
+        }
     }
 }
