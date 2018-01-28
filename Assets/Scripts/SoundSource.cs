@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SoundSource : MonoBehaviour
 {
-    public float startHeight = 2f;
+    public float startHeight = 1f;
     public GameObject soundPrefab;
     public List<Vector3> directions;
     public float speed = 10f;
