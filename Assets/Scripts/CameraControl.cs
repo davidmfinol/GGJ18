@@ -26,6 +26,7 @@ public class CameraControl : MonoBehaviour
                 transform.position = Vector3.up * movementIncrement + transform.position;
             else
                 transform.position = Vector3.down * movementIncrement + transform.position;
-        }
+        } else if (Input.GetKeyDown(KeyCode.C))
+            GameProgressionManager.instance.GoToLevel(1);
     }
 }

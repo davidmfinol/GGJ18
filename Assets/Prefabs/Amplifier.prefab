@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1983151614550436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.84, y: 2.5, z: -0.75}
-  m_LocalScale: {x: 2, y: 5, z: 1}
+  m_LocalPosition: {x: -4.64, y: 1, z: 0.57}
+  m_LocalScale: {x: 0.9020519, y: 1.8765491, z: 0.6378977}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,7 +108,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0f805cd8219e9499a2082e6c531da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centerDistanceForRotation: 0
+  centerDistanceForRotation: 0.5
+  rotationObject: {fileID: 0}
+  _CENTERFROMGROUND: 2
+  isRadiusRestricted: 1
+  radiusSize: 1
+  isRectangleRestricted: 0
+  rectRestXTop: 0
+  rectRestXButtom: 0
+  rectRestZLeft: 0
+  rectRestZRight: 0
 --- !u!114 &114869452347120742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,3 +130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  reflectorIntensityAmount: 0
+  microphoneTarget: {fileID: 0}
+  speedAmount: 2
