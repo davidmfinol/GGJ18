@@ -23,6 +23,10 @@ public class GameProgressionManager : MonoBehaviour {
     private float endFocalLength = 1f;
     [SerializeField]
     private GameObject audioManagerPrefab;
+    [SerializeField]
+    private GameObject titleStartPage;
+    [SerializeField]
+    private GameObject titleEndPage;
 
     [Header("Camera Locations setup")]
     [SerializeField]
@@ -162,6 +166,10 @@ public class GameProgressionManager : MonoBehaviour {
     {
         CameraTweening(cameraPositions[levelIndex].transform.position);
         ActivateLevelSoundSources(levelIndex);
+        if (levelIndex > 1)
+        {
+            SwitchTitlePages();
+        }
     }
 
     public void ActivateLevelSoundSources(int levelIndex)
@@ -180,5 +188,11 @@ public class GameProgressionManager : MonoBehaviour {
                 levelSoundSource[i].SetActive(false);
             }
         }
+    }
+
+    public void SwitchTitlePages()
+    {
+        titleEndPage.SetActive(true);
+        titleStartPage.SetActive(false);
     }
 }
