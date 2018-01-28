@@ -37,10 +37,6 @@ public class SoundSource : MonoBehaviour
         newSoundWave.speed = speed;
         newSoundWave.intensity = intensity;
         Collider collider = newSoundWave.GetComponent<Collider>();
-        foreach (SoundWave soundWave in soundWaves)
-            Physics.IgnoreCollision(collider, soundWave.GetComponent<Collider>());
-        if (GetComponent<Collider>() != null)
-            Physics.IgnoreCollision(collider, GetComponent<Collider>());
         soundWaves.Add(newSoundWave);
         if (waveReleaseSound.Length != 0)
         {
