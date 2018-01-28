@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: bcc2883951e708e4ead34e0443a33231
-timeCreated: 1517113636
+guid: b4b0bd589bed75a4da907e0a4a21836b
+timeCreated: 1517104026
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,8 +10,7 @@ ModelImporter:
     2100000: PaletteA
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pCube20
-    9500000: //RootNode
+    4300000: Obs_Armchair
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -42,7 +41,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -86,7 +85,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
