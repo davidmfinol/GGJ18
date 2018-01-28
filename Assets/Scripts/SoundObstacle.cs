@@ -14,8 +14,8 @@ public enum SoundObstacleType
 public class SoundObstacle : MonoBehaviour
 {
     public SoundObstacleType type;
-    public Transform target;
     public float reflectorIntensityAmount = 0f;
+    public Transform microphoneTarget;
 
     public float IntensityEffect {
         get { return intensityEffect; }
