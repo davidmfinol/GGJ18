@@ -102,7 +102,7 @@ public class SoundWave : MonoBehaviour
         if (waveImpactSound.Length != 0)
         {
             waveAudioSource.clip = waveImpactSound[Random.Range(0, waveImpactSound.Length)];
-            waveAudioSource.volume = intensity;
+            waveAudioSource.volume = intensity*0.6f;
             waveAudioSource.Play();
         }
     }
