@@ -7,6 +7,9 @@ public class SoundSource : MonoBehaviour
     public List<Vector3> directions;
     public float speed = 10f;
     public float intensity = 1f;
+    public AudioSource sourceAudioSource;
+    public AudioClip[] waveReleaseSound;
+    
 
     private List<SoundWave> soundWaves = new List<SoundWave>();
 
@@ -39,5 +42,11 @@ public class SoundSource : MonoBehaviour
         if (GetComponent<Collider>() != null)
             Physics.IgnoreCollision(collider, GetComponent<Collider>());
         soundWaves.Add(newSoundWave);
+        if (waveReleaseSound.Length != 0)
+        {
+            sourceAudioSource.clip = waveReleaseSound[Random.Range(0, waveReleaseSound.Length)];
+            sourceAudioSource.Play();
+        }
+        
     }
 }
