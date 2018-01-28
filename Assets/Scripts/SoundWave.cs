@@ -29,7 +29,7 @@ public class SoundWave : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        SoundObstacle soundObstacle = other.gameObject.GetComponent<SoundObstacle>();
+        SoundObstacle soundObstacle = other.gameObject.GetComponentInParent<SoundObstacle>();
         if (soundObstacle == null)
             return;
 
@@ -63,7 +63,8 @@ public class SoundWave : MonoBehaviour
 
     public void Amplify(Transform target)
     {
-        transform.position = target.position;
+        float starty = transform.position.y;
+        transform.position = new Vector3(target.position.x, starty, target.position.z);
         Vector3 forward = target.forward;
         transform.rotation = Quaternion.FromToRotation(Vector3.forward, forward);
         GetComponent<Rigidbody>().velocity = forward * speed;
