@@ -110,7 +110,7 @@ public class EnemyManager : MonoBehaviour
         if (AnnoyanceLevel > 0.8f) {
             targetWaypoint = 6;
             StartCoroutine(MoveToWaypoint());
-            GameProgressionManager.instance.GoToLevel(2);
+            GameProgressionManager.instance.GoToLevel(GameProgressionManager.instance.CurrentLevel + 1);
         }
     }
 }

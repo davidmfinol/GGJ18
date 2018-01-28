@@ -23,6 +23,10 @@ public class GameProgressionManager : MonoBehaviour {
     private float endFocalLength = 1f;
     [SerializeField]
     private GameObject audioManagerPrefab;
+    [SerializeField]
+    private GameObject titleStartPage;
+    [SerializeField]
+    private GameObject titleEndPage;
 
     [Header("Camera Locations setup")]
     [SerializeField]
@@ -158,10 +162,36 @@ public class GameProgressionManager : MonoBehaviour {
         }
     }
 
+    private IEnumerator ReBlur()
+    {
+        float startTime = 0;
+        float progress;
+
+        while (startTime <= timeForCameraTweening)
+        {
+            progress = startTime / timeForCameraTweening;
+            DepthOfFieldModel.Settings settings = processingProfile.depthOfField.settings;
+            settings.aperture = Mathf.Lerp(endBlur, startBlur, progress);
+            settings.focalLength = Mathf.Lerp(endFocalLength, startFocalLength, progress);
+            processingProfile.depthOfField.settings = settings;
+            startTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
     public void GoToLevel(int levelIndex)
     {
         CameraTweening(cameraPositions[levelIndex].transform.position);
+        if (cameraPositions.Length == levelIndex + 1)
+        {
+            StartCoroutine(ReBlur());
+        }
         ActivateLevelSoundSources(levelIndex);
+        if (levelIndex > 1)
+        {
+            SwitchTitlePages();
+        }
+        currentLevel = levelIndex;
     }
 
     public void ActivateLevelSoundSources(int levelIndex)
@@ -180,5 +210,11 @@ public class GameProgressionManager : MonoBehaviour {
                 levelSoundSource[i].SetActive(false);
             }
         }
+    }
+
+    public void SwitchTitlePages()
+    {
+        titleEndPage.SetActive(true);
+        titleStartPage.SetActive(false);
     }
 }
