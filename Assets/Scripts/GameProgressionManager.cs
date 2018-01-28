@@ -38,12 +38,20 @@ public class GameProgressionManager : MonoBehaviour {
     private Coroutine cameraCoRoutine;
     private PostProcessingProfile processingProfile;
     private bool isGamePaused = true;
+    private int currentLevel = 0;
 
     public bool IsGamePaused
     {
         get
         {
             return isGamePaused;
+        }
+    }
+
+    public int CurrentLevel
+    {
+        get {
+            return currentLevel;
         }
     }
 
@@ -76,6 +84,7 @@ public class GameProgressionManager : MonoBehaviour {
         {
             if (Input.GetMouseButtonDown(0))
             {
+                currentLevel++;
                 isInGameMode = true;
                 CameraTweening(cameraPositions[1].position);
                 StartCoroutine(UnBlur());
