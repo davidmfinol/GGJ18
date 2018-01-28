@@ -24,7 +24,7 @@ public class SoundObstacle : MonoBehaviour
 
     void Start()
     {
-        transform.position = new Vector3(transform.position.x, 2, transform.position.z);
+        //transform.position = new Vector3(transform.position.x, 2, transform.position.z);
         switch (type) {
             case SoundObstacleType.Reflector:
                 break;
