@@ -21,6 +21,11 @@ public class CameraControl : MonoBehaviour
                 transform.position = Vector3.forward * movementIncrement + transform.position;
             else
                 transform.position = Vector3.back * movementIncrement + transform.position;
+        } else if (Input.GetButtonDown("Height")) {
+            if (Input.GetAxis("Height") > 0)
+                transform.position = Vector3.up * movementIncrement + transform.position;
+            else
+                transform.position = Vector3.down * movementIncrement + transform.position;
         }
     }
 }
