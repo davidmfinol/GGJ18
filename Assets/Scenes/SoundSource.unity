@@ -187,6 +187,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1125025274851636, guid: 4d4c0b421a902db46925e3bc5d4259ea, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d4c0b421a902db46925e3bc5d4259ea, type: 2}
   m_IsPrefabParent: 0
@@ -229,6 +233,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1916246185368858, guid: 62bfa1eb92be5a64098b020e59b2423f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62bfa1eb92be5a64098b020e59b2423f, type: 2}
   m_IsPrefabParent: 0
@@ -270,6 +278,10 @@ Prefab:
     - target: {fileID: 4612235099991832, guid: 07ea00be722dff140a57d7f22c4312f1, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983151614550436, guid: 07ea00be722dff140a57d7f22c4312f1, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07ea00be722dff140a57d7f22c4312f1, type: 2}
@@ -376,7 +388,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  target: {fileID: 0}
+  reflectorIntensityAmount: 0
+  microphoneTarget: {fileID: 0}
 --- !u!1 &736659551
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +492,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  target: {fileID: 0}
+  reflectorIntensityAmount: 0
+  microphoneTarget: {fileID: 0}
 --- !u!1 &1085563410
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +596,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  target: {fileID: 0}
+  reflectorIntensityAmount: 0
+  microphoneTarget: {fileID: 0}
 --- !u!1 &1105303104
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +700,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  target: {fileID: 0}
+  reflectorIntensityAmount: 0
+  microphoneTarget: {fileID: 0}
 --- !u!1 &1152443762
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,7 +799,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
-  target: {fileID: 0}
+  reflectorIntensityAmount: 0
+  microphoneTarget: {fileID: 0}
 --- !u!114 &1511829766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,6 +1080,10 @@ Prefab:
     - target: {fileID: 4582666954497464, guid: a5eccce58dc375347ae7908f39e3b521, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1086694850431090, guid: a5eccce58dc375347ae7908f39e3b521, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5eccce58dc375347ae7908f39e3b521, type: 2}
