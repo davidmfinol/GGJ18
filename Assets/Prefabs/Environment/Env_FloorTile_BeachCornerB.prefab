@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4628793387443492}
   - component: {fileID: 33808635558570776}
   - component: {fileID: 23968913488802268}
+  - component: {fileID: 65093159612376454}
   m_Layer: 0
   m_Name: Env_FloorTile_BeachCornerB
   m_TagString: Untagged
@@ -82,3 +83,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038354136750850}
   m_Mesh: {fileID: 4300000, guid: 6050ffde27185274a98498d8313f12ea, type: 3}
+--- !u!65 &65093159612376454
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1038354136750850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000023, y: 0.121248014, z: 1}
+  m_Center: {x: -0.49999866, y: -0.060624007, z: 0.49999994}
