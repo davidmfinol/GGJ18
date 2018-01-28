@@ -27,6 +27,11 @@ public class SoundWave : MonoBehaviour
         }
     }
 
+    void OnCollisionStay(Collision collision)
+    {
+        OnCollisionEnter(collision);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         SoundObstacle soundObstacle = other.gameObject.GetComponent<SoundObstacle>();
