@@ -37662,6 +37662,30 @@ Prefab:
       propertyPath: rectRestZRight
       value: -2.07
       objectReference: {fileID: 0}
+    - target: {fileID: 1647319688461934, guid: 07ea00be722dff140a57d7f22c4312f1, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114340868798561666, guid: 07ea00be722dff140a57d7f22c4312f1,
+        type: 2}
+      propertyPath: rectRestXButtom
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 114340868798561666, guid: 07ea00be722dff140a57d7f22c4312f1,
+        type: 2}
+      propertyPath: rectRestXTop
+      value: 1.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 114340868798561666, guid: 07ea00be722dff140a57d7f22c4312f1,
+        type: 2}
+      propertyPath: rectRestZLeft
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114340868798561666, guid: 07ea00be722dff140a57d7f22c4312f1,
+        type: 2}
+      propertyPath: rectRestZRight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07ea00be722dff140a57d7f22c4312f1, type: 2}
   m_IsPrefabParent: 0
