@@ -170,6 +170,7 @@ public class GameProgressionManager : MonoBehaviour {
         {
             SwitchTitlePages();
         }
+        currentLevel = levelIndex;
     }
 
     public void ActivateLevelSoundSources(int levelIndex)
