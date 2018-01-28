@@ -10,6 +10,12 @@ public class SoundWave : MonoBehaviour
     public AudioSource waveAudioSource;
     public AudioClip[] waveImpactSound;
 
+    public AudioClip reflectorSound;
+    public AudioClip speedBoostSound;
+    public AudioClip waterSound;
+    public AudioClip microphoneSound;
+    public AudioClip amplifierSound;
+
     void OnCollisionEnter(Collision collision)
     {
         SoundObstacle soundObstacle = collision.gameObject.GetComponent<SoundObstacle>();
@@ -23,6 +29,7 @@ public class SoundWave : MonoBehaviour
             default:
             case SoundObstacleType.Reflector:
                 Reflect(collision.contacts[0]);
+                AudioManager.Play(reflectorSound, intensity * 0.6f);
                 break;
         }
     }
@@ -38,16 +45,20 @@ public class SoundWave : MonoBehaviour
             case SoundObstacleType.SpeedBoost:
                 speed += soundObstacle.speedAmount;
                 Amplify(soundObstacle.transform);
+                AudioManager.Play(speedBoostSound, intensity * 0.6f);
                 break;
             case SoundObstacleType.Water:
                 Refract(other);
+                AudioManager.Play(waterSound, intensity * 0.6f);
                 break;
             case SoundObstacleType.Microphone:
                 Amplify(soundObstacle.microphoneTarget.transform);
+                AudioManager.Play(microphoneSound, intensity * 0.6f);
                 break;
             default:
             case SoundObstacleType.Amplifier:
                 Amplify(soundObstacle.transform);
+                AudioManager.Play(amplifierSound, intensity * 0.6f);
                 break;
         }
     }

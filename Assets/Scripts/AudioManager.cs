@@ -73,7 +73,7 @@ public class AudioManager : MonoBehaviour {
     {
         GameObject availableTempASource = FindNextAvailableAudioSource();
 
-        if (availableTempASource == null)
+        if (availableTempASource == null || audioClip != null)
         {
             return;
         }
