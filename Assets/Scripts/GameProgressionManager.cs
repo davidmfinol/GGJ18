@@ -30,7 +30,7 @@ public class GameProgressionManager : MonoBehaviour {
 
     [HideInInspector]
     public bool isInGameMode = false;
-    
+
 
     private Coroutine cameraCoRoutine;
     private PostProcessingProfile processingProfile;
@@ -126,5 +126,10 @@ public class GameProgressionManager : MonoBehaviour {
             startTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    public void GoToLevel(int levelIndex)
+    {
+        CameraTweening(cameraPositions[levelIndex].transform.position);
     }
 }
