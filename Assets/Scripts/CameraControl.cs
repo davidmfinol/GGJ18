@@ -6,14 +6,11 @@ public class CameraControl : MonoBehaviour
 {
     public float movementIncrement = 1f;
 
+    [SerializeField]
     private Dictionary<int, Vector3> min = new Dictionary<int, Vector3>();
-    private Dictionary<int, Vector3> max = new Dictionary<int, Vector3>();
 
-    void Start()
-    {
-        min[1] = new Vector3(-100, 0, -100);
-        max[1] = new Vector3(100, 100, 100);
-    }
+    [SerializeField]
+    private Dictionary<int, Vector3> max = new Dictionary<int, Vector3>();
 
     void Update()
     {
