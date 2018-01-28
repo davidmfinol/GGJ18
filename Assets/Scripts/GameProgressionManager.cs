@@ -17,6 +17,8 @@ public class GameProgressionManager : MonoBehaviour {
     private float startBlur = 3.8f;
     [SerializeField]
     private float endBlur = 32f;
+    [SerializeField]
+    private GameObject audioManagerPrefab;
 
     [Header("Camera Locations setup")]
     [SerializeField]
@@ -48,6 +50,7 @@ public class GameProgressionManager : MonoBehaviour {
         {
             instance = this;
             MouseInputReceiver.instance = mouseInputReciever;
+            Instantiate(audioManagerPrefab);
         }
         else if (instance != this)
         {
