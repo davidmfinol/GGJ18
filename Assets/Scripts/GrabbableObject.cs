@@ -86,11 +86,7 @@ public class GrabbableObject : MonoBehaviour {
     private void OnMouseDown()
     {
         isMouseClicked = true;
-        //StartCoroutine(LookForMouseUp());
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //RaycastHit raycastHit;
-        //Physics.Raycast(ray, out raycastHit);
-        //mouseDownPosition = raycastHit.point;
         mouseDownPosition = ray.GetPoint(Camera.main.transform.position.y - GameProgressionManager.instance._GAMEHEIGHTCONST);
         mouseDownPosition = new Vector3(mouseDownPosition.x, GameProgressionManager.instance._GAMEHEIGHTCONST, mouseDownPosition.z);
         Vector3 objectPosition = new Vector3(transform.position.x, GameProgressionManager.instance._GAMEHEIGHTCONST, transform.position.z);
