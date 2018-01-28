@@ -55,7 +55,14 @@ public class EnemyManager : MonoBehaviour {
         Vector3 healthScale = healthBar.transform.localScale;
         healthScale.z = AnnoyanceLevel;
         healthBar.transform.localScale = healthScale;
-
+        if (AnnoyanceLevel <= 0.01f)
+        {
+            healthBar.SetActive(false);
+        }
+        else
+        {
+            healthBar.SetActive(true);
+        }
         healthMaterial.color = Color.Lerp(healthBarColors[0], healthBarColors[1], AnnoyanceLevel);
     }
 }
