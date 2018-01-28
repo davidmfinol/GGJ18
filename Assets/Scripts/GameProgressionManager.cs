@@ -18,6 +18,10 @@ public class GameProgressionManager : MonoBehaviour {
     [SerializeField]
     private float endBlur = 32f;
     [SerializeField]
+    private float startFocalLength = 175f;
+    [SerializeField]
+    private float endFocalLength = 1f;
+    [SerializeField]
     private GameObject audioManagerPrefab;
 
     [Header("Camera Locations setup")]
@@ -82,7 +86,7 @@ public class GameProgressionManager : MonoBehaviour {
         processingProfile = Camera.main.GetComponent<PostProcessingBehaviour>().profile;
         DepthOfFieldModel.Settings settings = processingProfile.depthOfField.settings;
         settings.aperture = startBlur;
-        settings.focalLength = 250f;
+        settings.focalLength = startFocalLength;
         processingProfile.depthOfField.settings = settings;
 
         ActivateLevelSoundSources(0);
@@ -143,7 +147,7 @@ public class GameProgressionManager : MonoBehaviour {
             progress = startTime / timeForCameraTweening;
             DepthOfFieldModel.Settings settings = processingProfile.depthOfField.settings;
             settings.aperture = Mathf.Lerp(startBlur, endBlur, progress);
-            settings.focalLength = Mathf.Lerp(250, 1, progress);
+            settings.focalLength = Mathf.Lerp(startFocalLength, endFocalLength, progress);
             processingProfile.depthOfField.settings = settings;
             startTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();

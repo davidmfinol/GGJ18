@@ -277,6 +277,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  reflectorSound: {fileID: 8300000, guid: 7f465f801788f6845becd5f3b13b6a9d, type: 3}
+  speedBoostSound: {fileID: 8300000, guid: 3dce1bac67ce232429269b77cc2d40e0, type: 3}
+  waterSound: {fileID: 8300000, guid: b2fe9d3b292ebc0439225cae7a0fe835, type: 3}
+  microphoneSound: {fileID: 8300000, guid: 3dce1bac67ce232429269b77cc2d40e0, type: 3}
+  amplifierSound: {fileID: 8300000, guid: 7f465f801788f6845becd5f3b13b6a9d, type: 3}
 --- !u!135 &135575378003916980
 SphereCollider:
   m_ObjectHideFlags: 1

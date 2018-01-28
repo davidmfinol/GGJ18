@@ -238,7 +238,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1018772155174836}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 11.34, y: 16.75, z: 1.2}
+  m_LocalPosition: {x: 11.34, y: 16.75, z: 0.61}
   m_LocalScale: {x: 1.62, y: 3.22, z: 0.99}
   m_Children:
   - {fileID: 4432201705213848}
@@ -642,6 +642,8 @@ MonoBehaviour:
     m_RotationOrder: 0
   startBlur: 3.8
   endBlur: 32
+  startFocalLength: 175
+  endFocalLength: 1
   audioManagerPrefab: {fileID: 1667123967420218, guid: 66748c0e6aff06b44b4c75bd35a6bb17,
     type: 2}
   cameraPositions:
