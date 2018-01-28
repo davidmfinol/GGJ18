@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class SoundSource : MonoBehaviour
 {
-    public float startHeight = 2f;
+    public float startHeight = 1f;
     public GameObject soundPrefab;
     public List<Vector3> directions;
-    public float speed = 10f;
+    public float speed = 5f;
     public float intensity = 1f;
     public AudioSource sourceAudioSource;
     public AudioClip[] waveReleaseSound;
@@ -38,6 +38,5 @@ public class SoundSource : MonoBehaviour
             sourceAudioSource.clip = waveReleaseSound[Random.Range(0, waveReleaseSound.Length)];
             sourceAudioSource.Play();
         }
-
     }
 }

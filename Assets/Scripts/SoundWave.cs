@@ -3,7 +3,7 @@
 [RequireComponent(typeof(Rigidbody))]
 public class SoundWave : MonoBehaviour
 {
-    public const float decayRate = 0.1f;
+    public const float DecayRate = 0.1f;
 
     public float speed;
     public float intensity;
@@ -109,7 +109,7 @@ public class SoundWave : MonoBehaviour
 
     void Update()
     {
-        intensity -= decayRate * Time.deltaTime;
+        intensity -= DecayRate * Time.deltaTime;
         if (intensity <= 0)
             Destroy(gameObject);
     }
