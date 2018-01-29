@@ -6,5 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/WorkingBADLOOKINGCombinedScene.unity
-    guid: d2799e7424d64df4fb00bc4944af7c21
+    path: Assets/Scenes/CombinedScene.unity
+    guid: ba81c140ae3704cd68d8d142ae5ceafd

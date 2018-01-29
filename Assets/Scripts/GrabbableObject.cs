@@ -32,7 +32,7 @@ public class GrabbableObject : MonoBehaviour {
 
 
     private Vector3 startPosition;
-    private bool isMouseClicked = false;
+    //private bool isMouseClicked = false;
 
 
     private void OnDrawGizmosSelected()
@@ -63,11 +63,11 @@ public class GrabbableObject : MonoBehaviour {
         move = 1,
         rotate = 2
     }
-    
+
 
     public void OnButtonDown(int buttonPressed)
     {
-        isMouseClicked = true;
+//        isMouseClicked = true;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         mouseDownPosition = ray.GetPoint(Camera.main.transform.position.y - GameProgressionManager.instance._GAMEHEIGHTCONST);
         mouseDownPosition = new Vector3(mouseDownPosition.x, GameProgressionManager.instance._GAMEHEIGHTCONST, mouseDownPosition.z);
@@ -164,7 +164,7 @@ public class GrabbableObject : MonoBehaviour {
 
     public void OnButtonUp(int buttonPressed)
     {
-        isMouseClicked = false;
+//        isMouseClicked = false;
     }
 
     private void Start()
@@ -180,7 +180,7 @@ public class GrabbableObject : MonoBehaviour {
             linePositions[2] = new Vector3(startPosition.x + rectRestXButtom, 0.02f, startPosition.z + rectRestZRight);
             linePositions[3] = new Vector3(startPosition.x + rectRestXButtom, 0.02f, startPosition.z - rectRestZLeft);
             linePositions[4] = new Vector3(startPosition.x - rectRestXTop, 0.02f, startPosition.z - rectRestZLeft);
-            
+
             lineRenderer.positionCount = 5;
             lineRenderer.SetPositions(linePositions);
             lineRenderer.gameObject.SetActive(true);
@@ -206,7 +206,7 @@ public class GrabbableObject : MonoBehaviour {
         {
             currentDragMode = DragMode.move;
         }
-        
+
 
 
     }
