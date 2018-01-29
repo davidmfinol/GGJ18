@@ -96,7 +96,7 @@ public class GameProgressionManager : MonoBehaviour {
     {
         if (!isInGameMode)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.anyKeyDown)
             {
                 currentLevel++;
                 isInGameMode = true;
