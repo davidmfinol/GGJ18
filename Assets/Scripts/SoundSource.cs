@@ -45,6 +45,15 @@ public class SoundSource : MonoBehaviour
             StartSoundWave();
     }
 
+    public void OnButtonDown(int input)
+    {
+        if (input == 0)
+        {
+            StartSoundWave();
+        }
+            Debug.Log("wave should be going");
+    }
+
     public void StartSoundWave()
     {
         Vector3 startPosition = transform.position;

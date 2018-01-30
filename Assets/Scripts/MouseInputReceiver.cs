@@ -78,6 +78,15 @@ public class MouseInputReceiver : MonoBehaviour {
         {
             currentGrabbable.OnButtonDown(buttonPressed);
         }
+        if (raycastHit.collider.isTrigger)
+        {
+            SoundSource currentSoundSource = raycastHit.collider.GetComponentInParent<SoundSource>();
+            if (currentSoundSource != null)
+            {
+                currentSoundSource.OnButtonDown(buttonPressed);
+            }
+        }
+        
     }
 
     private void MouseInputReceiver_OnButtonDownUpdate(int buttonPressed)

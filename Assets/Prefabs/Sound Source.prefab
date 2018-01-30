@@ -715,6 +715,7 @@ GameObject:
   - component: {fileID: 4406057133951942}
   - component: {fileID: 114859637264916836}
   - component: {fileID: 82162826501409148}
+  - component: {fileID: 135824099827330082}
   m_Layer: 0
   m_Name: Sound Source
   m_TagString: Untagged
@@ -1920,7 +1921,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1521747899047500}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.57, y: 1, z: -2.29}
+  m_LocalPosition: {x: -5.57, y: 1, z: -8.606}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4413191406283244}
@@ -1928,7 +1929,7 @@ Transform:
   - {fileID: 4332553994095896}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4408535210218758
 Transform:
   m_ObjectHideFlags: 1
@@ -2784,10 +2785,6 @@ MonoBehaviour:
   startHeight: 1
   soundPrefab: {fileID: 1338708757252364, guid: 6291dea16b5080b48aa689402a91e580,
     type: 2}
-  directions:
-  - {x: 1, y: 0, z: 1}
-  - {x: 1, y: 0, z: 0}
-  - {x: 1, y: 0, z: -1}
   speed: 5
   intensity: 1
   sourceAudioSource: {fileID: 82162826501409148}
@@ -2798,3 +2795,15 @@ MonoBehaviour:
   - {fileID: 1276793441219626}
   - {fileID: 1967702186121372}
   - {fileID: 1453610666158552}
+--- !u!135 &135824099827330082
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1521747899047500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
