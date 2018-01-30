@@ -5,30 +5,39 @@ public class SoundSource : MonoBehaviour
 {
     public float startHeight = 1f;
     public GameObject soundPrefab;
-    public List<Vector3> directions;
     public float speed = 5f;
     public float intensity = 1f;
     public AudioSource sourceAudioSource;
     public AudioClip[] waveReleaseSound;
+    Vector3 worldForward;
+    Vector3 worldLeft45;
+    Vector3 worldRight45;
 
     [Header("DirectionChooser")]
     public GameObject[] directionSelection;
 
+    private void Awake()
+    {
+        worldForward = transform.forward.normalized;
+        worldLeft45 = (worldForward - transform.right).normalized;
+        worldRight45 = (worldForward + transform.right).normalized;
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && directions.Count > 1)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            transform.rotation = Quaternion.LookRotation(directions[0].normalized);
+            
+            transform.rotation = Quaternion.LookRotation(worldLeft45);
             UpdateSelection(0);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && directions.Count > 1)
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            transform.rotation = Quaternion.LookRotation(directions[1].normalized);
+            transform.rotation = Quaternion.LookRotation(worldForward);
             UpdateSelection(1);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && directions.Count > 2)
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            transform.rotation = Quaternion.LookRotation(directions[2].normalized);
+            transform.rotation = Quaternion.LookRotation(worldRight45);
             UpdateSelection(2);
         }
 
