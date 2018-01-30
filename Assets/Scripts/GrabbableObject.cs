@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrabbableObject : MonoBehaviour {
+public class GrabbableObject : MonoBehaviour
+{
 
     private Vector3 mouseDownPosition;
     [SerializeField]
@@ -32,7 +33,7 @@ public class GrabbableObject : MonoBehaviour {
 
 
     private Vector3 startPosition;
-    private bool isMouseClicked = false;
+    //private bool isMouseClicked = false;
 
 
     private void OnDrawGizmosSelected()
@@ -63,11 +64,11 @@ public class GrabbableObject : MonoBehaviour {
         move = 1,
         rotate = 2
     }
-    
+
 
     public void OnButtonDown(int buttonPressed)
     {
-        isMouseClicked = true;
+        //        isMouseClicked = true;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         mouseDownPosition = ray.GetPoint(Camera.main.transform.position.y - GameProgressionManager.instance._GAMEHEIGHTCONST);
         mouseDownPosition = new Vector3(mouseDownPosition.x, GameProgressionManager.instance._GAMEHEIGHTCONST, mouseDownPosition.z);
@@ -80,20 +81,12 @@ public class GrabbableObject : MonoBehaviour {
         else if (buttonPressed == 1)
         {
             currentDragMode = DragMode.rotate;
+            Vector3 worldForward = transform.forward.normalized;
+            Vector3 worldLeft45 = (worldForward - transform.right).normalized;
+            Quaternion m_MyQuaternion = new Quaternion();
+            m_MyQuaternion.SetFromToRotation(worldForward, worldLeft45);
+            transform.rotation = m_MyQuaternion * transform.rotation;
         }
-
-        /* --Determine interaction by distance from center
-        Vector3 objectPosition = new Vector3(transform.position.x, GameProgressionManager.instance._GAMEHEIGHTCONST, transform.position.z);
-        float objectDistance = Vector3.Distance(objectPosition, mouseDownPosition);
-        if (objectDistance > centerDistanceForRotation)
-        {
-            currentDragMode = DragMode.rotate;
-        }
-        else
-        {
-            currentDragMode = DragMode.move;
-        }
-        */
     }
 
     public void OnButtonDownUpdate(int buttonPressed)
@@ -138,7 +131,7 @@ public class GrabbableObject : MonoBehaviour {
 
     public void OnButtonUp(int buttonPressed)
     {
-        isMouseClicked = false;
+        //        isMouseClicked = false;
     }
 
     private void Start()
@@ -154,7 +147,7 @@ public class GrabbableObject : MonoBehaviour {
             linePositions[2] = new Vector3(startPosition.x + rectRestXButtom, 0.02f, startPosition.z + rectRestZRight);
             linePositions[3] = new Vector3(startPosition.x + rectRestXButtom, 0.02f, startPosition.z - rectRestZLeft);
             linePositions[4] = new Vector3(startPosition.x - rectRestXTop, 0.02f, startPosition.z - rectRestZLeft);
-            
+
             lineRenderer.positionCount = 5;
             lineRenderer.SetPositions(linePositions);
             lineRenderer.gameObject.SetActive(true);
