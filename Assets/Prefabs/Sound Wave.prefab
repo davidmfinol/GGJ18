@@ -99,7 +99,7 @@ Transform:
   m_GameObject: {fileID: 1352298644274720}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.1}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children: []
   m_Father: {fileID: 4511919524010558}
   m_RootOrder: 0
@@ -272,11 +272,7 @@ MonoBehaviour:
   speed: 0
   intensity: 0
   waveAudioSource: {fileID: 82015972036428866}
-  waveImpactSound:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waveImpactSound: {fileID: 0}
   reflectorSound: {fileID: 8300000, guid: 7f465f801788f6845becd5f3b13b6a9d, type: 3}
   speedBoostSound: {fileID: 8300000, guid: 3dce1bac67ce232429269b77cc2d40e0, type: 3}
   waterSound: {fileID: 8300000, guid: b2fe9d3b292ebc0439225cae7a0fe835, type: 3}

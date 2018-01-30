@@ -12170,37 +12170,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.000001, y: 2.5604293, z: 0.2400766}
   m_Center: {x: 0.5000005, y: 1.2802144, z: 0.0000010505319}
---- !u!1 &475581757 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1793161400862512, guid: cf0f3553085a84246a908332cb83371c,
-    type: 2}
-  m_PrefabInternal: {fileID: 896575825}
 --- !u!4 &475581758 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4009801590243932, guid: cf0f3553085a84246a908332cb83371c,
     type: 2}
   m_PrefabInternal: {fileID: 896575825}
---- !u!114 &475581761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 475581757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af0f805cd8219e9499a2082e6c531da1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  centerDistanceForRotation: 0.67
-  rotationObject: {fileID: 0}
-  lineRenderer: {fileID: 0}
-  isRadiusRestricted: 1
-  radiusSize: 1.84
-  isRectangleRestricted: 0
-  rectRestXTop: 0
-  rectRestXButtom: 0
-  rectRestZLeft: 0
-  rectRestZRight: 0
 --- !u!1001 &476442453
 Prefab:
   m_ObjectHideFlags: 0
@@ -22502,7 +22476,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4009801590243932, guid: cf0f3553085a84246a908332cb83371c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4009801590243932, guid: cf0f3553085a84246a908332cb83371c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -22528,6 +22502,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114517078861949226, guid: cf0f3553085a84246a908332cb83371c,
+        type: 2}
+      propertyPath: lineRenderer
+      value: 
+      objectReference: {fileID: 1667130710}
     - target: {fileID: 1793161400862512, guid: cf0f3553085a84246a908332cb83371c, type: 2}
       propertyPath: m_Name
       value: SurfboardGreen (1)
@@ -26851,15 +26830,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4009801590243932, guid: cf0f3553085a84246a908332cb83371c, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.004520002
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4009801590243932, guid: cf0f3553085a84246a908332cb83371c, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.00452
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4009801590243932, guid: cf0f3553085a84246a908332cb83371c, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.004520002
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4009801590243932, guid: cf0f3553085a84246a908332cb83371c, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -32942,7 +32921,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4417276660849596, guid: 2e41f44cb32e6412d93f913774b4a205, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4417276660849596, guid: 2e41f44cb32e6412d93f913774b4a205, type: 2}
       propertyPath: m_LocalPosition.z
@@ -40552,7 +40531,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4417276660849596, guid: 2e41f44cb32e6412d93f913774b4a205, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4417276660849596, guid: 2e41f44cb32e6412d93f913774b4a205, type: 2}
       propertyPath: m_LocalPosition.z
@@ -40584,6 +40563,11 @@ Prefab:
 --- !u!4 &1667130709 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4417276660849596, guid: 2e41f44cb32e6412d93f913774b4a205,
+    type: 2}
+  m_PrefabInternal: {fileID: 1667130708}
+--- !u!120 &1667130710 stripped
+LineRenderer:
+  m_PrefabParentObject: {fileID: 120186574193709612, guid: 2e41f44cb32e6412d93f913774b4a205,
     type: 2}
   m_PrefabInternal: {fileID: 1667130708}
 --- !u!1001 &1667415963
