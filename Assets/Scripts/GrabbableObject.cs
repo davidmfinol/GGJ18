@@ -80,20 +80,12 @@ public class GrabbableObject : MonoBehaviour {
         else if (buttonPressed == 1)
         {
             currentDragMode = DragMode.rotate;
+            Vector3 worldForward = transform.forward.normalized;
+            Vector3 worldLeft45 = (worldForward - transform.right).normalized;
+            Quaternion m_MyQuaternion = new Quaternion();
+            m_MyQuaternion.SetFromToRotation(worldForward, worldLeft45);
+            transform.rotation = m_MyQuaternion * transform.rotation;
         }
-
-        /* --Determine interaction by distance from center
-        Vector3 objectPosition = new Vector3(transform.position.x, GameProgressionManager.instance._GAMEHEIGHTCONST, transform.position.z);
-        float objectDistance = Vector3.Distance(objectPosition, mouseDownPosition);
-        if (objectDistance > centerDistanceForRotation)
-        {
-            currentDragMode = DragMode.rotate;
-        }
-        else
-        {
-            currentDragMode = DragMode.move;
-        }
-        */
     }
 
     public void OnButtonDownUpdate(int buttonPressed)
@@ -129,32 +121,6 @@ public class GrabbableObject : MonoBehaviour {
                 transform.position += moveDistance;
                 break;
             case DragMode.rotate:
-                /* Rotate the object freely
-                Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
-                Vector3 oldDirection = objectPosition - mouseDownPosition;
-                Vector3 newDirection = objectPosition - newMousePosition;
-                Quaternion m_MyQuaternion = new Quaternion();
-                m_MyQuaternion.SetFromToRotation(oldDirection, newDirection);
-                transform.rotation = m_MyQuaternion * transform.rotation;
-                */
-
-                //Rotate the object snapping to 45 degrees
-                Vector3 worldForward = transform.forward.normalized;
-                Vector3 worldRight45 = (transform.right + worldForward).normalized;
-                Vector3 worldLeft45 = (worldForward - transform.right).normalized;
-                float mouseFromForward = Vector3.Distance(transform.position + worldForward, newMousePosition);
-                if (mouseFromForward > Vector3.Distance(transform.position + worldLeft45, newMousePosition))
-                {
-                    Quaternion m_MyQuaternion = new Quaternion();
-                    m_MyQuaternion.SetFromToRotation(worldForward, worldLeft45);
-                    transform.rotation = m_MyQuaternion * transform.rotation;
-                }
-                else if (mouseFromForward > Vector3.Distance(transform.position + worldRight45, newMousePosition))
-                {
-                    Quaternion m_MyQuaternion = new Quaternion();
-                    m_MyQuaternion.SetFromToRotation(worldForward, worldRight45);
-                    transform.rotation = m_MyQuaternion * transform.rotation;
-                }
                 break;
             default:
                 break;
@@ -186,150 +152,7 @@ public class GrabbableObject : MonoBehaviour {
             lineRenderer.gameObject.SetActive(true);
         }
     }
-    #region OnMouse Stuff (currently disabled)
-    /*
-    private void OnMouseDown()
-    {
-        isMouseClicked = true;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        mouseDownPosition = ray.GetPoint(Camera.main.transform.position.y - GameProgressionManager.instance._GAMEHEIGHTCONST);
-        mouseDownPosition = new Vector3(mouseDownPosition.x, GameProgressionManager.instance._GAMEHEIGHTCONST, mouseDownPosition.z);
-        Debug.Log("Button pushed");
-        --Determine interaction by distance from center
-        Vector3 objectPosition = new Vector3(transform.position.x, GameProgressionManager.instance._GAMEHEIGHTCONST, transform.position.z);
-        float objectDistance = Vector3.Distance(objectPosition, mouseDownPosition);
-        if (objectDistance > centerDistanceForRotation)
-        {
-            currentDragMode = DragMode.rotate;
-        }
-        else
-        {
-            currentDragMode = DragMode.move;
-        }
-        
 
-
-    }
-*/
-    /*
-        private void OnMouseUp()
-        {
-            isMouseClicked = false;
-        }
-        //private IEnumerator LookForMouseUp()
-        //{
-        //    Debug.Log("waiting for mouse lift");
-        //    while (isMouseClicked)
-        //    {
-        //        if (Input.GetMouseButtonUp(0))
-        //        {
-        //            isMouseClicked = false;
-        //            Debug.Log("mouse lifted");
-        //        }
-        //        yield return new WaitForEndOfFrame();
-        //    }
-        //}
-
-            */
-    /*
-private void OnMouseDrag()
-{
-    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //RaycastHit raycastHit;
-    //Physics.Raycast(ray, out raycastHit);
-    //Vector3 newMousePosition = raycastHit.point;
-    Vector3 newMousePosition = ray.GetPoint(Camera.main.transform.position.y - GameProgressionManager.instance._GAMEHEIGHTCONST);
-    newMousePosition = new Vector3(newMousePosition.x, GameProgressionManager.instance._GAMEHEIGHTCONST, newMousePosition.z);
-    switch (currentDragMode)
-    {
-        case DragMode.move:
-            Vector3 moveDistance = newMousePosition - mouseDownPosition;
-            if (isRectangleRestricted)
-            {
-                if ((transform.position.x + moveDistance.x < startPosition.x - rectRestXTop) || (transform.position.x + moveDistance.x > startPosition.x + rectRestXButtom))
-                {
-                    moveDistance.x = 0;
-                }
-                if ((transform.position.z + moveDistance.z < startPosition.z - rectRestZLeft) || (transform.position.z + moveDistance.z > startPosition.z + rectRestZRight))
-                {
-                    moveDistance.z = 0;
-                }
-            }
-            if (isRadiusRestricted)
-            {
-                if (Vector3.Distance(transform.position + moveDistance, startPosition) > radiusSize)
-                {
-                    moveDistance = Vector3.zero;
-                }
-            }
-            transform.position += moveDistance;
-            break;
-        case DragMode.rotate:
-            //Rotate the object freely
-            //Vector3 objectPosition = new Vector3(transform.position.x, 0, transform.position.z);
-            //Vector3 oldDirection = objectPosition - mouseDownPosition;
-            //Vector3 newDirection = objectPosition - newMousePosition;
-            //Quaternion m_MyQuaternion = new Quaternion();
-            //m_MyQuaternion.SetFromToRotation(oldDirection, newDirection);
-            //transform.rotation = m_MyQuaternion * transform.rotation;
-
-
-            //Rotate the object snapping to 45 degrees
-            Vector3 worldForward = transform.forward.normalized;
-            Vector3 worldRight45 = (transform.right + worldForward).normalized;
-            Vector3 worldLeft45 = (worldForward - transform.right).normalized;
-            float mouseFromForward = Vector3.Distance(transform.position + worldForward, newMousePosition);
-            if (mouseFromForward > Vector3.Distance(transform.position + worldLeft45, newMousePosition))
-            {
-                Quaternion m_MyQuaternion = new Quaternion();
-                m_MyQuaternion.SetFromToRotation(worldForward, worldLeft45);
-                transform.rotation = m_MyQuaternion * transform.rotation;
-            }
-            else if (mouseFromForward > Vector3.Distance(transform.position + worldRight45, newMousePosition))
-            {
-                Quaternion m_MyQuaternion = new Quaternion();
-                m_MyQuaternion.SetFromToRotation(worldForward, worldRight45);
-                transform.rotation = m_MyQuaternion * transform.rotation;
-            }
-            break;
-        default:
-            break;
-    }
-    mouseDownPosition = newMousePosition;
-}
-*/
-    #endregion
-
-
-        /*
-    private void OnMouseOver()
-    {
-        if (!isMouseClicked)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 newMousePosition = ray.GetPoint(Camera.main.transform.position.y - GameProgressionManager.instance._GAMEHEIGHTCONST);
-            newMousePosition = new Vector3(newMousePosition.x, GameProgressionManager.instance._GAMEHEIGHTCONST, newMousePosition.z);
-            Vector3 objectPosition = new Vector3(transform.position.x, GameProgressionManager.instance._GAMEHEIGHTCONST, transform.position.z);
-            float objectDistance = Vector3.Distance(objectPosition, newMousePosition);
-            if (objectDistance > centerDistanceForRotation)
-            {
-                currentDragMode = DragMode.rotate;
-                EnableRotateVisualizer();
-            }
-            else if (objectDistance < centerDistanceForRotation)
-            {
-                currentDragMode = DragMode.move;
-                DisableRotateVisualizer();
-            }
-        }
-    }
-
-    private void OnMouseExit()
-    {
-        //currentDragMode = DragMode.move;
-        DisableRotateVisualizer();
-    }
-    */
     private void EnableRotateVisualizer()
     {
         if (rotationObject != null && !rotationObject.activeSelf)
