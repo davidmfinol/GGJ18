@@ -22304,6 +22304,36 @@ Prefab:
       propertyPath: m_Name
       value: SurfboardGreen (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114517078861949226, guid: cf0f3553085a84246a908332cb83371c,
+        type: 2}
+      propertyPath: isRadiusRestricted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114517078861949226, guid: cf0f3553085a84246a908332cb83371c,
+        type: 2}
+      propertyPath: isRectangleRestricted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114517078861949226, guid: cf0f3553085a84246a908332cb83371c,
+        type: 2}
+      propertyPath: rectRestXTop
+      value: 1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 114517078861949226, guid: cf0f3553085a84246a908332cb83371c,
+        type: 2}
+      propertyPath: rectRestXButtom
+      value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 114517078861949226, guid: cf0f3553085a84246a908332cb83371c,
+        type: 2}
+      propertyPath: rectRestZLeft
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 114517078861949226, guid: cf0f3553085a84246a908332cb83371c,
+        type: 2}
+      propertyPath: rectRestZRight
+      value: 1.02
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114888134358205712, guid: cf0f3553085a84246a908332cb83371c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cf0f3553085a84246a908332cb83371c, type: 2}
@@ -22380,6 +22410,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4565431978828010, guid: 0c8c3b929afcd0147a35d32035df708c,
     type: 2}
   m_PrefabInternal: {fileID: 899128553}
+--- !u!120 &905915379 stripped
+LineRenderer:
+  m_PrefabParentObject: {fileID: 120510082846854290, guid: cf0f3553085a84246a908332cb83371c,
+    type: 2}
+  m_PrefabInternal: {fileID: 999759439}
 --- !u!1001 &907088541
 Prefab:
   m_ObjectHideFlags: 0
@@ -24848,7 +24883,13 @@ Prefab:
       propertyPath: rectRestZRight
       value: 1.12
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114888134358205712, guid: cf0f3553085a84246a908332cb83371c,
+        type: 2}
+      propertyPath: lineRenderer
+      value: 
+      objectReference: {fileID: 905915379}
+    m_RemovedComponents:
+    - {fileID: 114517078861949226, guid: cf0f3553085a84246a908332cb83371c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cf0f3553085a84246a908332cb83371c, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &999759440 stripped
@@ -32729,7 +32770,7 @@ Prefab:
     - target: {fileID: 114675451955229866, guid: 2e41f44cb32e6412d93f913774b4a205,
         type: 2}
       propertyPath: isRadiusRestricted
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114675451955229866, guid: 2e41f44cb32e6412d93f913774b4a205,
         type: 2}
@@ -32739,7 +32780,7 @@ Prefab:
     - target: {fileID: 114675451955229866, guid: 2e41f44cb32e6412d93f913774b4a205,
         type: 2}
       propertyPath: isRectangleRestricted
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e41f44cb32e6412d93f913774b4a205, type: 2}
