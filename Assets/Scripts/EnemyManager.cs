@@ -9,16 +9,9 @@ public class EnemyManager : MonoBehaviour
     public int currentWaypoint = 0;
     public int targetWaypoint = 0;
 
+    public GameObject annoyanceIndicator;
+
     private float AnnoyanceLevel = 0;
-    [SerializeField]
-    private GameObject healthBar;
-    [SerializeField]
-    private Renderer healthRenderer;
-
-    [SerializeField]
-    private Color[] healthBarColors;
-
-    private Material healthMaterial;
 
     [Header("Sound")]
     [SerializeField]
@@ -26,9 +19,22 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private AudioClip hitFullAnnoy;
 
+    public IEnumerator BeAngry()
+    {
+        StopCoroutine(MoveToWaypoint());
+        GetComponentInChildren<Animator>().SetBool(Animator.StringToHash("sit"), false);
+        GetComponentInChildren<Animator>().SetBool(Animator.StringToHash("angry"), true);
+        annoyanceIndicator.SetActive(true);
+        yield return new WaitForSeconds(4);
+        annoyanceIndicator.SetActive(false);
+        GameProgressionManager.instance.GoToLevel(GameProgressionManager.instance.CurrentLevel + 1);
+        GetComponentInChildren<Animator>().SetBool(Animator.StringToHash("angry"), false);
+        StartCoroutine(MoveToWaypoint());
+    }
 
     public IEnumerator MoveToWaypoint()
     {
+        transform.LookAt(waypoints[currentWaypoint].position);
         while (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) > 0.1f) {
             transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypoint].position, MoveSpeed * Time.deltaTime);
             yield return null;
@@ -36,28 +42,14 @@ public class EnemyManager : MonoBehaviour
         currentWaypoint++;
         if (currentWaypoint < targetWaypoint)
             StartCoroutine(MoveToWaypoint());
-    }
+        else {
+            if (currentWaypoint == 6) {
+                transform.LookAt(Vector3.back);
+                GetComponentInChildren<Animator>().SetBool(Animator.StringToHash("sit"), true);
+            } else
+                GetComponentInChildren<Animator>().SetBool(Animator.StringToHash("outside"), true);
 
-    private void Awake()
-    {
-        healthMaterial = healthRenderer.materials[0];
-
-        Vector3 healthScale = healthBar.transform.localScale;
-        healthScale.z = AnnoyanceLevel;
-        healthBar.transform.localScale = healthScale;
-
-        healthMaterial.color = Color.Lerp(healthBarColors[0], healthBarColors[1], AnnoyanceLevel);
-    }
-
-    private void Update()
-    {
-        /*
-        //FOR TESTING ONLY
-        if (Input.GetMouseButtonDown(0))
-        {
-            UpdateAnnoyanceLevel(0.1f);
         }
-        */
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -93,31 +85,13 @@ public class EnemyManager : MonoBehaviour
                 AudioManager.Play(hitSmall);
             }
         }
-        Debug.Log("Bad Guy Annoyed " + AnnoyanceLevel + " much");
-        Vector3 healthScale = healthBar.transform.localScale;
-        healthScale.z = AnnoyanceLevel;
-        healthBar.transform.localScale = healthScale;
-        if (AnnoyanceLevel <= 0.01f)
-        {
-            healthBar.SetActive(false);
-        }
-        else
-        {
-            healthBar.SetActive(true);
-        }
-        healthMaterial.color = Color.Lerp(healthBarColors[0], healthBarColors[1], AnnoyanceLevel);
 
-        if (AnnoyanceLevel > 0.8f) {
-            if (GameProgressionManager.instance.CurrentLevel == 1)
-            {
+        if (!GetComponentInChildren<Animator>().GetBool(Animator.StringToHash("angry"))) {
+            if (targetWaypoint < 6)
                 targetWaypoint = 6;
-            }
             else
-            {
                 targetWaypoint = 9;
-            }
-            StartCoroutine(MoveToWaypoint());
-            GameProgressionManager.instance.GoToLevel(GameProgressionManager.instance.CurrentLevel + 1);
+            StartCoroutine(BeAngry());
         }
     }
 }
