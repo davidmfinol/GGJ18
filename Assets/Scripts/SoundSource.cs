@@ -16,6 +16,15 @@ public class SoundSource : MonoBehaviour
     [Header("DirectionChooser")]
     public GameObject[] directionSelection;
 
+    public enum Direction
+    {
+        Left,
+        Forward,
+        Right
+    }
+
+    private Direction currentDirection = Direction.Forward;
+
     private void Awake()
     {
         worldForward = transform.forward.normalized;
@@ -40,9 +49,56 @@ public class SoundSource : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(worldRight45);
             UpdateSelection(2);
         }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            MoveDirectionLeft();
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            MoveDirectionRight();
+        }
+
 
         if (Input.GetButtonDown("Submit") && !GameProgressionManager.instance.IsGamePaused)
             StartSoundWave();
+    }
+
+    private void MoveDirectionLeft()
+    {
+        switch (currentDirection)
+        {
+            case Direction.Left:
+                break;
+            case Direction.Forward:
+                transform.rotation = Quaternion.LookRotation(worldLeft45);
+                UpdateSelection(0);
+                break;
+            case Direction.Right:
+                transform.rotation = Quaternion.LookRotation(worldForward);
+                UpdateSelection(1);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void MoveDirectionRight()
+    {
+        switch (currentDirection)
+        {
+            case Direction.Left:
+                transform.rotation = Quaternion.LookRotation(worldForward);
+                UpdateSelection(1);
+                break;
+            case Direction.Forward:
+                transform.rotation = Quaternion.LookRotation(worldRight45);
+                UpdateSelection(2);
+                break;
+            case Direction.Right:
+                break;
+            default:
+                break;
+        }
     }
 
     public void OnButtonDown(int input)
@@ -84,6 +140,20 @@ public class SoundSource : MonoBehaviour
             {
                 directionSelection[i].SetActive(false);
             }
+        }
+        switch (number)
+        {
+            case 0:
+                currentDirection = Direction.Left;
+                break;
+            case 1:
+                currentDirection = Direction.Forward;
+                break;
+            case 2:
+                currentDirection = Direction.Right;
+                break;
+            default:
+                break;
         }
     }
 }
