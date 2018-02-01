@@ -86,7 +86,7 @@ public class EnemyManager : MonoBehaviour
             }
         }
 
-        if (!GetComponentInChildren<Animator>().GetBool(Animator.StringToHash("angry"))) {
+        if (currentWaypoint == targetWaypoint) {
             if (targetWaypoint < 6)
                 targetWaypoint = 6;
             else
